@@ -1,0 +1,38 @@
+.content-home {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-home h1{
+    align-self: flex-start;
+    color: #E0E2DB;
+    padding-left: 30px;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+
+.content-home hr{
+    width: 95%;
+    align-self: flex-start;
+    border: 1px #E0E0E0 solid;
+}
+
+.movies{
+    width: 94vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding-left: 45px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.movie {
+    background-color: #1F2421;
+    height: 150px;
+    min-width: 250px;
+    width: 21vw;
+    margin-right: 40px;
+    margin-top: 40px;
+}
