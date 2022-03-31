@@ -10,7 +10,7 @@ export default function Search({name, modal, setModal}){
 
     const [title, setTitle] = useState('')
     const [checked, setChecked] = useState([false,false,false,false,false,false,false])
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState([null])
     const content = ["premio/","actor/","genero/","directores/","categoria/","fecha/","nombre/"]
     
     const handleCheck = (index) => {
@@ -35,10 +35,8 @@ export default function Search({name, modal, setModal}){
         let mov = []
         
         for(let checked in toCheck){
-            console.log(checked)
             let fet = "http://localhost:5000/pelis/"+toCheck[checked]+title
             //http://localhost:5000/premios/nombre/enviado
-            console.log(fet)
             
             fetch(fet)
             .then((response) => {
@@ -105,7 +103,7 @@ export default function Search({name, modal, setModal}){
                 
             </label>
 
-            <ContentHome name={"Resultados..."} movies = {movies}/>
+            <ContentHome name={"Resultados..."} movies = {movies} />
         </div>
     )
 }
