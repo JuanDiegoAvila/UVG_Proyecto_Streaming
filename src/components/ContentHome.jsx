@@ -36,7 +36,7 @@ export default function ContentHome({name, movies}){
                         <h1>No se encontraron resultados...</h1>
                     </div>
                     :
-                    peliculas.map( (movie) => <div className ="movie" />)
+                    peliculas.map( (movie) => <div className ="movie" style ={{...style, backgroundImage:url(movie)}}/>)
             }
             
            </div>
