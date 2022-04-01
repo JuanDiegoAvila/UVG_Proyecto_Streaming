@@ -1,6 +1,6 @@
 import './Search.css';
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import Modal from './Modal'
 import ContentHome from './ContentHome';
@@ -9,48 +9,57 @@ import ContentHome from './ContentHome';
 export default function Search({name, modal, setModal}){
 
     const [title, setTitle] = useState('')
-    const [checked, setChecked] = useState([false,false,false,false,false,false,false])
-    const [movies, setMovies] = useState([null])
+    const [checked, setChecked] = useState(new Array(7).fill(false))
+    const [movies, setMovies] = useState([])
     const content = ["premio/","actor/","genero/","directores/","categoria/","fecha/","nombre/"]
+    const checkers = ["Premios","Actor","Género","Director","Categoría", "Fecha de estreno", "Pelicula/Serie"]
     
     const handleCheck = (index) => {
         const oldState = [...checked]
         oldState[index] = !oldState[index]
         setChecked(oldState)
     }
-    
+
     const handleSearch = async() => {
-
-        title.toLowerCase()
-
-        resetForm()
-        let toCheck = []
-
-        for(let i = 0; i < checked.length; i++){
-            if(checked[i]){ 
-                toCheck.push(content[i])
-            }
-        }
         
         let mov = []
         
-        for(let checked in toCheck){
-            let fet = "http://localhost:5000/pelis/"+toCheck[checked]+title
-            //http://localhost:5000/premios/nombre/enviado
+        for(let c in checked){
+
+            if(!checked[c]){
+                continue   
+            }
             
-            fetch(fet)
-            .then((response) => {
-                return response.json()
-            }).then((responseInJSON) => {
-                responseInJSON.map(m => {mov.push(m)})
-            })
+            console.log(c)
+
+            let fet = "http://localhost:5000/pelis/"+content[c]+(title.toLowerCase())
+
+            console.log(fet)
+
+            const response = await fetch(fet)
+            .then((response) => {return response.json()}
+            ).then((responseInJSON) => { return responseInJSON })
+
+            mov = [...mov, ...response]
 
         }
+
+        console.log(mov)
+
         setMovies(mov)
+
+        resetForm()
+    }
+    
+    const handleClick = () => {
+
+        handleSearch()
+
     }
 
     const resetForm = () => {
         setTitle('')
+        setChecked(new Array(7).fill(false))
     }
 
     return (
@@ -62,45 +71,18 @@ export default function Search({name, modal, setModal}){
                     onChange={(e) => setTitle(e.target.value)} 
                     value={title}
                 />
-                <button onClick={() => handleSearch()}>Buscar</button>
+                <button onClick={() => handleClick()}>Buscar</button>
             </label>
 
             <label className='parameters'>
-                <div className='param'>
-                    <input type="checkbox" onChange={() => handleCheck(0)} />
-                    <h3>Premios</h3>
-                </div>
-
-                <div className='param'>
-                    <input type="checkbox" onChange={() => handleCheck(1)} />
-                    <h3>Actor</h3>
-                </div>
-
-                <div className='param'>
-                    <input type="checkbox"  onChange={() => handleCheck(2)} />
-                    <h3>Género</h3>
-                </div>
-
-                <div className='param'>
-                    <input type="checkbox" onChange={() => handleCheck(3)} />
-                    <h3>Director</h3>
-                </div>
-
-                <div className='param'>
-                    <input type="checkbox" onChange={() => handleCheck(4)} />
-                    <h3>Categoría</h3>
-                </div>
-
-                <div className='param'>
-                    <input type="checkbox" onChange={() => handleCheck(5)} />
-                    <h3>Fecha de estreno</h3>
-                </div>
-
-                <div className='param'>
-                    <input type="checkbox" onChange={() => handleCheck(6)} />
-                    <h3>Pelicula/Serie</h3>
-                </div>
-                
+                {
+                    checkers.map((c, index) => (
+                        <div className='param'>
+                            <input type="checkbox" onChange={() => handleCheck(index)} checked = {checked[index]} />
+                            <h3>{c}</h3>
+                        </div>
+                    ))
+                }        
             </label>
 
             <ContentHome name={"Resultados..."} movies = {movies} />

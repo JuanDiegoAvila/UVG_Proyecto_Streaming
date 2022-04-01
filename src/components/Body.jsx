@@ -8,9 +8,10 @@ export default function Body({name, modal, setModal}){
     return (
         <div className="body">
             {modal  && <Modal name={name} setModal={setModal}/>}
-            <ContentHome name={"Visto"}/>
-            <ContentHome name={"Viendo"}/>
-            <ContentHome name={"Sugerencias"} />
+            <ContentHome name={"Visto"} movies ={[]}/>
+            <ContentHome name={"Viendo"} movies = {[]}/>
+            <ContentHome name={"Sugerencias"} movies = {[]}/>
+            <ContentHome name={"Favoritos"} movies = {[]}/>
         </div>
     )
 }
