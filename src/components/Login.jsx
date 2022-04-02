@@ -1,7 +1,10 @@
 import {useState, useEffect} from 'react'
+import {Link, Routes, Route, BrowserRouter,render } from 'react-router-dom'
 
 import App from '../App'
 import './Login.css'
+import Register from './Register'
+
 
 function Login() {
 
@@ -22,7 +25,11 @@ function Login() {
         const log = await fetch(fet)
         .then((response) => {return response.json()})
         .then((responseInJSON) => { return responseInJSON })
-        console.log({...log})
+        console.log(log.completado)
+        const rootElement = document.getElementById("root");
+        if(log.completado){
+            render(<App/>,root)
+        }
     }
 
     return (
@@ -51,9 +58,13 @@ function Login() {
 
                     <div className='usuario-principal'>
 
-                        <button onClick={() => logIn()}> Iniciar Sesion </button>
-                        <button onClick={() => resetForms()}> Registrarse </button>
+                        <Link to="/Register">
+                            <button onClick={() => {resetForms()}}> Registrarse </button>
+                        </Link>
 
+                        <button onClick={() => logIn()}> Iniciar Sesion </button>
+                        
+                        
                     </div>
 
                     
@@ -61,6 +72,8 @@ function Login() {
                     <button onClick={() => resetForms()}> Administrador </button>
 
                 </div>
+
+                
 
         </div>
     )

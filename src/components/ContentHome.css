@@ -18,7 +18,7 @@
 }
 
 .movies{
-    width: 94vw;
+    width: 95vw;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -26,14 +26,16 @@
     padding-top: 20px;
     padding-bottom: 30px;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .movie {
     background-color: #1F2421;
     height: 150px;
     min-width: 250px;
-    width: 21vw;
+    width: 18vw;
     margin-right: 40px;
     margin-top: 40px;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

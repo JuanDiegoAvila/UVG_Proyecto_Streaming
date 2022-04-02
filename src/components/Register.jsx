@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import App from '../App'
 import './Register.css'
 
-function Login() {
+function Register() {
 
     const [admin, setAdmin] = useState(false)
     const [signed, setSigned] = useState(false)
@@ -24,7 +24,7 @@ function Login() {
             }
             
                 <div className = "container">
-                    <h1>Bienvenido al proyecto de Streaming</h1>
+                    <h1>Crear una cuenta</h1>
 
                     <div className = "input-cont">
                         <h2>Usuario: </h2>
