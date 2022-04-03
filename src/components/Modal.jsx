@@ -1,10 +1,12 @@
 import './Modal.css'
 import ReactDOM from 'react-dom'
 import {useEffect, useState} from "react"
+import {useNavigate} from 'react-router-dom'
 
 export default function Modal({name, setModal}) {
     
     const [profiles, setProfiles] = useState([{id:1, name:'maria'},{ id:2 , name:'juan'}, {id: 3 , name:'pedro'}])
+    let navigate = useNavigate();
 
     return ReactDOM.createPortal((
         <div className="modal-backdrop">
@@ -17,8 +19,8 @@ export default function Modal({name, setModal}) {
                 <h2>{name}</h2>
                 <div className="profile-container">
                 {
-                    profiles.map(profile => 
-                        <button id={"transparent"}>
+                    profiles.map((profile,index) => 
+                        <button key = {index} id={"transparent"}>
                             <h3>{profile.name}
                             </h3>
                         </button>)
@@ -26,7 +28,7 @@ export default function Modal({name, setModal}) {
                 </div>
                 
                 <div className='sesion-container'>
-                    <button className='sesion'>Cerrar Sesion</button>
+                    <button className='sesion' onClick = { () => { window.localStorage.setItem('correo', ""); navigate(`/`)}}>Cerrar Sesion</button>
                 </div>
                 
             </div>  

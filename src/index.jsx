@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import Login from './components/Login';
 import Register from './components/Register'
 import App from './App'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Perfiles from './components/Perfiles'
 
-ReactDOM.render(
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { render} from "react-dom"
+
+render(
   <React.StrictMode>
     
     <BrowserRouter>
@@ -14,7 +18,8 @@ ReactDOM.render(
 
         <Route path="/" element={ <Login />}/>
         <Route exact path='/Register' element={< Register />}/>
-        <Route exact path='/App' element={< App />}></Route>
+        <Route exact path='/App' element={< App />}/>
+        <Route exact path='/Perfiles' element = {<Perfiles/>}/>
         
       </Routes>
 

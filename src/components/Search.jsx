@@ -5,7 +5,6 @@ import {useState, useEffect} from 'react'
 import Modal from './Modal'
 import ContentHome from './ContentHome';
 
-
 export default function Search({name, modal, setModal}){
 
     const [title, setTitle] = useState('')
@@ -30,23 +29,22 @@ export default function Search({name, modal, setModal}){
                 continue   
             }
             
-            console.log(c)
-
             let fet = "http://localhost:5000/pelis/"+content[c]+(title.toLowerCase())
 
-            console.log(fet)
 
             const response = await fetch(fet)
             .then((response) => {return response.json()}
             ).then((responseInJSON) => { return responseInJSON })
 
             mov = [...mov, ...response]
+             
 
         }
 
-        console.log(mov)
 
-        setMovies(mov)
+        const final = [...new Map(mov.map(item => [item.codigo, item])).values()]
+
+        setMovies(final)
 
         resetForm()
     }
@@ -77,7 +75,7 @@ export default function Search({name, modal, setModal}){
             <label className='parameters'>
                 {
                     checkers.map((c, index) => (
-                        <div className='param'>
+                        <div key = {index} className='param'>
                             <input type="checkbox" onChange={() => handleCheck(index)} checked = {checked[index]} />
                             <h3>{c}</h3>
                         </div>

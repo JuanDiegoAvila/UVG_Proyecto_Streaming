@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {Link, Routes, Route, BrowserRouter,render } from 'react-router-dom'
+import {Link, Routes, Route, BrowserRouter, useNavigate } from 'react-router-dom'
 
 import App from '../App'
 import './Login.css'
@@ -12,6 +12,17 @@ function Login() {
     const [signed, setSigned] = useState(false)
     const [correo, setCorreo] = useState('')
     const [cont, setCont] = useState('')
+    const [loged,setloged] = useState(false)
+
+    let navigate = useNavigate();
+
+    useEffect( () => {
+        if(loged){
+            navigate(`/Perfiles`)
+        }
+        resetForms()
+        
+    }, [loged])
 
     const resetForms = () => {
         setCorreo('')
@@ -19,59 +30,55 @@ function Login() {
     }
 
     const logIn = async () => {
-        resetForms()
+        
+        
         const fet = 'http://localhost:5000/passcheck/' + correo + '/'+cont
-
+        window.localStorage.setItem('correo', correo)
+        console.log(fet)
         const log = await fetch(fet)
         .then((response) => {return response.json()})
         .then((responseInJSON) => { return responseInJSON })
         console.log(log.completado)
-        const rootElement = document.getElementById("root");
-        if(log.completado){
-            render(<App/>,root)
-        }
+        setloged(log.completado)
+        
     }
 
     return (
         <div className = "login-container">
-
-            {signed &&  
-                <App/> 
-            }
             
-                <div className = "container">
-                    <h1>Bienvenido al proyecto de Streaming</h1>
+            <div className = "container">
+                <h1>Bienvenido PelisDB</h1>
 
 
-                    <input 
-                            placeholder='Correo' type="text" 
-                            onChange={(e) => setCorreo(e.target.value)} 
-                            value={correo}
-                        />
+                <input 
+                        placeholder='Correo electrónico' type="text" 
+                        onChange={(e) => setCorreo(e.target.value)} 
+                        value={correo}
+                    />
+
     
-        
-                    <input placeholder='Contraseña'
-                            type="password" 
-                            onChange={(e) => setCont(e.target.value)} 
-                            value={cont}
-                        />
+                <input placeholder='Contraseña'
+                        type="password" 
+                        onChange={(e) => setCont(e.target.value)} 
+                        value={cont}
+                    />
 
-                    <div className='usuario-principal'>
+                <div className='usuario-principal'>
 
-                        <Link to="/Register">
-                            <button onClick={() => {resetForms()}}> Registrarse </button>
-                        </Link>
+                    <Link to="/Register">
+                        <button onClick={() => {resetForms()}}> Registrarse </button>
+                    </Link>
 
-                        <button onClick={() => logIn()}> Iniciar Sesion </button>
-                        
-                        
-                    </div>
-
+                    <button onClick={() => {logIn(); loged? null:resetForms() }}> Iniciar Sesion </button>
                     
                     
-                    <button onClick={() => resetForms()}> Administrador </button>
-
                 </div>
+
+                
+                
+                <button onClick={() => resetForms()}> Administrador </button>
+
+            </div>
 
                 
 

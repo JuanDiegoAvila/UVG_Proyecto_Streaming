@@ -4,6 +4,7 @@ import './ContentHome.css';
 
 export default function ContentHome({name, movies}){
 
+    
     /* fetch de bases de datos de las peliculas */
     return (
         <div className="content-home">
@@ -19,13 +20,17 @@ export default function ContentHome({name, movies}){
                         <h1>No se encontraron resultados...</h1>
                     </div>
                     :
-                    movies.map( (movie) => {
+                        <div className="tablero">{
+                            movies.map( (movie) => {
 
-                        return (
-                            <div key = {movie.codigo} className ="movie" style = {{ backgroundImage: `url(${movie.imagen})`}} />
-                        )
-                        
-                    } )
+                                return (
+                                        <div key = {movie.codigo} className ="movie" style = {{ backgroundImage: `url(${movie.imagen})`}} />
+                                )
+                                
+                            } )
+                            }
+                        </div>
+                    
             }
             
            </div>

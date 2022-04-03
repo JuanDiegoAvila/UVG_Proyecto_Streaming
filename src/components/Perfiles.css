@@ -1,0 +1,55 @@
+.Perfiles {
+    /*
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    */
+    background-color: #101419;
+    width:100vw;
+    height: 100vh;
+    display: grid;
+    grid-Template-Columns: repeat(5, 19vw);
+    grid-Gap: 0px;
+    grid-Auto-Rows: 165px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.Perfil {
+    display: flex;
+    background-color: #476C9B;
+    width: 15vw;
+    height: 15vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-inline: 20px;
+    border-radius: 10px;
+}
+
+.Perfil:hover {
+    opacity: 0.5;
+}
+
+.Perfil h1{
+    color: #E0E2DB;
+}
+
+.Add-Perfiles img{
+    max-width: 40%;
+    max-height: 40%;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}

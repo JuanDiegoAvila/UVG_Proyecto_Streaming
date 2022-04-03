@@ -18,24 +18,38 @@
 }
 
 .movies{
-    width: 95vw;
-    height: auto;
     display: flex;
-    flex-direction: row;
+    width: 90vw;
+    height: auto;
     padding-left: 45px;
     padding-top: 20px;
     padding-bottom: 30px;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 .movie {
     background-color: #1F2421;
     height: 150px;
-    min-width: 250px;
+    min-width: 200px;
     width: 18vw;
-    margin-right: 40px;
     margin-top: 40px;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.movie:hover {
+    opacity: 0.5;
+}
+
+.tablero{
+    margin-left: 48px;
+    width:100vw;
+    height:70vh;
+    padding-Top:10px;
+    display: grid;
+    grid-Template-Columns: repeat(5, 19vw);
+    grid-Gap: 0px;
+    grid-Auto-Rows: 165px;
+    align-self: center;
 }
