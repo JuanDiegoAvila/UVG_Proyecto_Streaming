@@ -11,7 +11,7 @@ function Perfiles(){
     const [perfiles, setPerfiles] = useState(['Juan', 'Carlos', 'Ana'])
 
     return(
-        <div className="container">
+        <div className="container-p">
             <div className="Perfiles">
             {
                 perfiles.map((perfil, index) => 
