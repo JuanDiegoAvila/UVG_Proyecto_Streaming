@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react'
 
 import ContentHome from './ContentHome'
 import Modal from './Modal'
+import ModalMovie from './ModalMovie'
 
 export default function Body({name, modal, setModal,movieview,setMovieView}){
 
@@ -58,10 +59,10 @@ export default function Body({name, modal, setModal,movieview,setMovieView}){
         <div className="body">
             {modal  && <Modal name={name} setModal={setModal} Perfil= {perfil} correo = {correo}/>}
             {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} Perfil= {perfil}/>}
-            <ContentHome name={"Viendo"} movies = {viendo}/>
+            <ContentHome name={"Viendo"} movies = {viendo} movieview={movieview} setMovieView={setMovieView}/>
             <ContentHome name={"Sugerencias"} movies = {[]}/>
-            <ContentHome name={"Favoritos"} movies = {favoritos}/>
-            <ContentHome name={"Visto"} movies ={vistos}/>
+            <ContentHome name={"Favoritos"} movies = {favoritos} movieview={movieview} setMovieView={setMovieView}/>
+            <ContentHome name={"Visto"} movies ={vistos} movieview={movieview} setMovieView={setMovieView}/>
         </div>
     )
 }
