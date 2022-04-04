@@ -29,18 +29,26 @@ function Login() {
         setCont('')
     }
 
+
     const logIn = async () => {
-        
         
         const fet = 'http://localhost:5000/passcheck/' + correo + '/'+cont
         window.localStorage.setItem('correo', correo)
-        console.log(fet)
+
         const log = await fetch(fet)
         .then((response) => {return response.json()})
         .then((responseInJSON) => { return responseInJSON })
         console.log(log.completado)
-        setloged(log.completado)
         
+
+        const fet2 = 'http://localhost:5000/usersC/'+ correo
+        const log2 = await fetch(fet2)
+        .then((response) => {return response.json()})
+        .then((responseInJSON) => { return responseInJSON })
+
+        window.localStorage.setItem('suscripcion', log2[0].suscripcion)
+
+        setloged(log.completado)
     }
 
     return (
