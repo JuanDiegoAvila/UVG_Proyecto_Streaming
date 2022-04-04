@@ -30,6 +30,7 @@
     justify-content: center;
     margin-inline: 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .Perfil:hover {
@@ -38,11 +39,13 @@
 
 .Perfil h1{
     color: #E0E2DB;
+    cursor: pointer;
 }
 
 .Add-Perfiles img{
     max-width: 40%;
     max-height: 40%;
+    cursor: pointer;
 
 }
 
@@ -70,4 +73,5 @@
     justify-content: center;
     align-items: center;
     grid-column-start: 3;
+    
 }
