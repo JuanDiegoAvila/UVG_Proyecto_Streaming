@@ -33,7 +33,7 @@
     height: 150px;
     min-width: 200px;
     width: 18vw;
-    margin-top: 40px;
+    margin-top: 10px;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -45,7 +45,7 @@
 .tablero{
     margin-left: 48px;
     width:100vw;
-    height:70vh;
+    height:auto;
     padding-Top:10px;
     display: grid;
     grid-Template-Columns: repeat(5, 19vw);

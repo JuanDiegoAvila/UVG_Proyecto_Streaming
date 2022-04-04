@@ -36,7 +36,12 @@ export default function Modal({name, setModal}) {
                 <div className="profile-container">
                 {
                     perfiles.map((per,index) => 
-                        <button key = {index} id={"transparent"} onClick ={ () => {console.log(per.nombre); window.localStorage.setItem('perfil', per.nombre); window.location.reload()}}>
+                        <button key = {index} id={"transparent"} onClick ={ () => {
+                                console.log(per.nombre)
+                                window.localStorage.setItem('perfil', per.nombre)
+                                window.localStorage.setItem('id-perfil', per.id_perfil)
+                                window.location.reload()
+                                }}>
                             <h3>{per.nombre}
                             </h3>
                         </button>)
@@ -44,7 +49,12 @@ export default function Modal({name, setModal}) {
                 </div>
                 
                 <div className='sesion-container'>
-                    <button className='sesion' onClick = { () => { window.localStorage.setItem('correo', "");  window.localStorage.setItem('perfil', ""); navigate(`/`)}}>Cerrar Sesion</button>
+                    <button className='sesion' onClick = { () => { 
+                        window.localStorage.setItem('correo', "")
+                        window.localStorage.setItem('perfil', "")
+                        window.localStorage.setItem('id-perfil', "")
+                        navigate(`/`)}}>Cerrar Sesion
+                    </button>
                 </div>
                 
             </div>  

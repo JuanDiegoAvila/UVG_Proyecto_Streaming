@@ -15,6 +15,7 @@ function Perfiles(){
     const handleClick = (per) => {
         
         window.localStorage.setItem('perfil', per.nombre)
+        window.localStorage.setItem('id-perfil', per.id_perfil)
         setPerfil(true)
     }
     

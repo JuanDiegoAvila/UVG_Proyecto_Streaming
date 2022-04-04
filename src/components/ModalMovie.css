@@ -14,7 +14,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    height: auto;
 }
 
 .modalm h2{
@@ -59,6 +59,10 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
+}
+
+.button-container button:hover{
+    opacity: 0.5;
 }
 
 .modalm button img {
