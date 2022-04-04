@@ -9,14 +9,16 @@ import {useState} from 'react'
 function App() {
 
   const [modal, setModal] =  useState(false)
+  const [movieview, setMovieView] =  useState([false,null])
   const [search, setSearch] =  useState(false)
+  const [name, setName] = useState(window.localStorage.getItem('perfil'))
 
   return (
     <div className="App">
 
-      <TitleBar name={"Carla"} subscription={"PREMIUM"} setModal= {setModal} search={search} setSearch={setSearch}/>
-      {!search && <Body name={"Carla"} modal={modal} setModal= {setModal}/>}
-      {search && <Search name={"Carla"} modal={modal} setModal= {setModal}/>}
+      <TitleBar name={name} subscription={"PREMIUM"} setModal= {setModal} search={search} setSearch={setSearch}/>
+      {!search && <Body name={name} modal={modal} setModal= {setModal} movieview={movieview} setMovieView={setMovieView}/>}
+      {search && <Search name={name} modal={modal} setModal= {setModal} movieview={movieview} setMovieView={setMovieView}/>}
     </div>
   );
 }

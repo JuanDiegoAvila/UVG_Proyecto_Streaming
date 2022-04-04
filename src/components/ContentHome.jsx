@@ -2,7 +2,7 @@
 import {useEffect, useState, useRef} from "react"
 import './ContentHome.css';
 
-export default function ContentHome({name, movies}){
+export default function ContentHome({name, movies,setMovieView}){
 
     
     /* fetch de bases de datos de las peliculas */
@@ -24,7 +24,7 @@ export default function ContentHome({name, movies}){
                             movies.map( (movie) => {
 
                                 return (
-                                        <div key = {movie.codigo} className ="movie" style = {{ backgroundImage: `url(${movie.imagen})`}} />
+                                        <div onClick={()=>setMovieView([true,movie])} key = {movie.codigo} className ="movie" style = {{ backgroundImage: `url(${movie.imagen})`}} />
                                 )
                                 
                             } )

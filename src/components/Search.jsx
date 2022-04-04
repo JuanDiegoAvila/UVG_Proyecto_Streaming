@@ -3,12 +3,13 @@ import './Search.css';
 import {useState, useEffect} from 'react'
 
 import Modal from './Modal'
+import ModalMovie from './ModalMovie'
 import ContentHome from './ContentHome';
 
-export default function Search({name, modal, setModal}){
+export default function Search({name, modal, setModal,movieview,setMovieView}){
 
     const [title, setTitle] = useState('')
-    const [checked, setChecked] = useState(new Array(7).fill(false))
+    const [checked, setChecked] = useState([false,false,false,false,false,false,true])
     const [movies, setMovies] = useState([])
     const content = ["premio/","actor/","genero/","directores/","categoria/","fecha/","nombre/"]
     const checkers = ["Premios","Actor","Género","Director","Categoría", "Fecha de estreno", "Pelicula/Serie"]
@@ -57,12 +58,13 @@ export default function Search({name, modal, setModal}){
 
     const resetForm = () => {
         setTitle('')
-        setChecked(new Array(7).fill(false))
+        setChecked([false,false,false,false,false,false,true])
     }
 
     return (
         <div className="body">
             {modal  && <Modal name={name} setModal={setModal}/>}
+            {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView}/>}
             <label className='search'>
                 <input 
                     type="text" 
@@ -83,7 +85,7 @@ export default function Search({name, modal, setModal}){
                 }        
             </label>
 
-            <ContentHome name={"Resultados..."} movies = {movies} />
+            <ContentHome name={"Resultados..."} movies = {movies} movieview={movieview} setMovieView={setMovieView}/>
         </div>
     )
 }

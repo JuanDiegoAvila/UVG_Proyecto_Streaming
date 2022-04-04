@@ -5,8 +5,24 @@ import {useNavigate} from 'react-router-dom'
 
 export default function Modal({name, setModal}) {
     
-    const [profiles, setProfiles] = useState([{id:1, name:'maria'},{ id:2 , name:'juan'}, {id: 3 , name:'pedro'}])
+    const [correo, setCorreo] = useState(window.localStorage.getItem('correo'))
+    const [perfiles, setPerfiles] = useState([])
     let navigate = useNavigate();
+
+    useEffect(async () => {
+
+
+        const fet = "http://localhost:5000/perfil/"+correo
+
+        const response = await fetch(fet)
+        .then((response) => {return response.json()}
+        ).then((responseInJSON) => { return responseInJSON })
+
+        setPerfiles([...response])
+
+
+    }, [])
+
 
     return ReactDOM.createPortal((
         <div className="modal-backdrop">
@@ -19,16 +35,16 @@ export default function Modal({name, setModal}) {
                 <h2>{name}</h2>
                 <div className="profile-container">
                 {
-                    profiles.map((profile,index) => 
-                        <button key = {index} id={"transparent"}>
-                            <h3>{profile.name}
+                    perfiles.map((per,index) => 
+                        <button key = {index} id={"transparent"} onClick ={ () => {console.log(per.nombre); window.localStorage.setItem('perfil', per.nombre); window.location.reload()}}>
+                            <h3>{per.nombre}
                             </h3>
                         </button>)
                 }
                 </div>
                 
                 <div className='sesion-container'>
-                    <button className='sesion' onClick = { () => { window.localStorage.setItem('correo', ""); navigate(`/`)}}>Cerrar Sesion</button>
+                    <button className='sesion' onClick = { () => { window.localStorage.setItem('correo', "");  window.localStorage.setItem('perfil', ""); navigate(`/`)}}>Cerrar Sesion</button>
                 </div>
                 
             </div>  
