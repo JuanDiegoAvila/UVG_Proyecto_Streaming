@@ -50,6 +50,14 @@ function Perfiles(){
         }
     }, [perfil])
 
+    useEffect(() => {
+
+        if(perfiles.length>=limit && perfiles!=0)
+        {
+            setAdd(false)
+        }
+    }, [perfiles])
+
 
     useEffect(async () => {
 
@@ -60,14 +68,6 @@ function Perfiles(){
         ).then((responseInJSON) => { return responseInJSON })
 
         setPerfiles([...response])
-
-        if(perfiles.length>=limit)
-        {
-            console.log(perfiles.length)
-            console.log(limit)
-
-            setAdd(false)
-        }
     }, [])
 
     return(
