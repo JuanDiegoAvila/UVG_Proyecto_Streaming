@@ -31,7 +31,7 @@ export default function Modal({name, setModal}) {
                 textAlign: "center"
             } 
             }>
-                <button id= {"transparent"} onClick={() => setModal(false)} className="exit"><img src='/img/exit.png'/></button>
+                <button id= {"transparent-exit"} onClick={() => setModal(false)} className="exit"><img src='/img/exit.png'/></button>
                 <h2>{name}</h2>
                 <div className="profile-container">
                 {
@@ -53,6 +53,7 @@ export default function Modal({name, setModal}) {
                         window.localStorage.setItem('correo', "")
                         window.localStorage.setItem('perfil', "")
                         window.localStorage.setItem('id-perfil', "")
+                        window.localStorage.setItem('id-usuario', "")
                         navigate(`/`)}}>Cerrar Sesion
                     </button>
                 </div>

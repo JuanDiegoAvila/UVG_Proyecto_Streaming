@@ -1,6 +1,6 @@
 import './TitleBar.css';
 
-export default function TitleBar({name, subscription, setModal, search, setSearch}){
+export default function TitleBar({name, subscription, setModal, search, setSearch, profileModal, setProfileModal}){
    
     const url = search ?  "/img/home.png" : "/img/search.png"
 
@@ -15,11 +15,11 @@ export default function TitleBar({name, subscription, setModal, search, setSearc
                 <img src = {url}/>
             </button>
 
-            <button onClick={()=> {setModal(true)}}>
+            <button onClick={()=> {setProfileModal(true)}}>
                 <img src ="/img/user.png"/>
             </button>
 
-            <div className = 'user-info'>
+            <div className = 'user-info' onClick={()=> {setModal(true)}}>
                 <h1>{name}</h1>
                 <p>{subscription}</p>
             </div>

@@ -1,11 +1,4 @@
 .Perfiles {
-    /*
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    */
     background-color: #101419;
     width:100vw;
     height: 100vh;
@@ -21,7 +14,7 @@
 }
 
 .Perfil {
-    display: flex;
+    display: flex ;
     background-color: #476C9B;
     width: 15vw;
     height: 15vh;
@@ -31,6 +24,7 @@
     margin-inline: 20px;
     border-radius: 10px;
     cursor: pointer;
+    
 }
 
 .Perfil:hover {
@@ -40,13 +34,15 @@
 .Perfil h1{
     color: #E0E2DB;
     cursor: pointer;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .Add-Perfiles img{
     max-width: 40%;
     max-height: 40%;
     cursor: pointer;
-
 }
 
 .Add-Perfiles img:hover{

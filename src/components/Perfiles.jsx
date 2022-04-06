@@ -17,10 +17,11 @@ function Perfiles(){
 
 
     const handleClick = (per) => {
-        
-        window.localStorage.setItem('perfil', per.nombre)
-        window.localStorage.setItem('id-perfil', per.id_perfil)
-        setPerfil(true)
+        if(!per.viendo){
+            window.localStorage.setItem('perfil', per.nombre)
+            window.localStorage.setItem('id-perfil', per.id_perfil)
+            setPerfil(true)
+        }   
     }
 
     const handleLimit = () => {
@@ -95,7 +96,7 @@ function Perfiles(){
                 )
             }
             {add&&
-                <div className="Add-Perfiles">
+                <div className="Add-Perfiles" onClick = {() => navigate(`/AddPerfiles`)}>
                     <img src = {"/img/plus.png"}/>
                 </div>
             }

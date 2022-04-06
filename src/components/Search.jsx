@@ -3,10 +3,11 @@ import './Search.css';
 import {useState, useEffect} from 'react'
 
 import Modal from './Modal'
+import ProfileModal from './ProfileModal'
 import ModalMovie from './ModalMovie'
 import ContentHome from './ContentHome';
 
-export default function Search({name, modal, setModal,movieview,setMovieView}){
+export default function Search({name, modal, setModal,movieview,setMovieView, profileModal, setProfileModal}){
 
     const [title, setTitle] = useState('')
     const [checked, setChecked] = useState([false,false,false,false,false,false,true])
@@ -64,6 +65,7 @@ export default function Search({name, modal, setModal,movieview,setMovieView}){
     return (
         <div className="body">
             {modal  && <Modal name={name} setModal={setModal}/>}
+            {profileModal  && <ProfileModal name={name} setProfileModal={setProfileModal}/>}
             {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView}/>}
             <label className='search'>
                 <input 

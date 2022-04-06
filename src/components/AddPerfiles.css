@@ -1,0 +1,37 @@
+.add-container {
+    background-color: #101419;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    
+}
+
+.add-container input{
+    width: 30vw;
+    height: 5vh;
+    align-self: center;
+    background-color:  #1F2421;
+    color: #E0E2DB;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.ButtonContainer{
+    padding-top: 20px;
+}
+
+.ButtonContainer button{
+    margin-inline: 30px;
+    width: 13vw;
+    height: 6vh;
+    align-self: center;
+    margin-bottom: 20px;
+    color: #E0E2DB;
+    background-color:  #476C9B;
+    border-radius: 10px;
+    font-size: 18px;
+}

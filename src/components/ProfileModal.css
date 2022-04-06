@@ -1,12 +1,12 @@
-.modal-backdrop{
+.Pmodal-backdrop{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     background: rgba(0, 0, 0, 0.5);
 }
-.modal{
+.Pmodal{
     padding: 30px;
     max-width: 480px;
     margin: 200px auto;
@@ -16,21 +16,12 @@
     flex-direction: column;
     height: 40vh;
 }
-.modal h2{
+.Pmodal h2{
     border-bottom: 1px solid #ddd;
     color: #E0E2DB;
     padding-bottom: 10px;
 }
 
-#transparent{
-    background-color: transparent;
-    border: transparent;
-    width: auto;
-    height: auto;
-    margin-left: 20px;
-    margin-right: 10px;
-    align-self: flex-end;
-}
 
 #transparent-exit{
     background-color: transparent;
@@ -46,45 +37,35 @@
     margin-top: 5px;
     margin-right: 5px;
 }
-
-.modal button img {
+.sms{
+    color: #ffffff;
+    font-size: 18;
+    font-weight: bold;
+    align-self: center;
+}
+.Pmodal button img {
     max-width:100%;
     max-height:100%;
 }
-
-.profile-container{
+.subscriptionPerfil {
+    width: 400px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 90%;
-    height: 100%;
+    align-items: center;
+    align-self: center;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
 }
 
-
-.profile-container h3{
-    color: #E0E2DB;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
-
-.sesion {
-    background-color: #101419;
-    color: #E0E2DB;
-    height: auto;
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    align-self: flex-end;
-    border-radius: 10px;
-}
-
-.sesion-container{
-    width: 100%;
-    height: 100%;
+.radioPerfil {
+    width: 110px;
+    height: 10px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    align-self: center;
+    margin-left: 10px;
     justify-content: center;
+    color: #E0E2DB;
+    
 }

@@ -6,8 +6,9 @@ import {useState, useEffect} from 'react'
 import ContentHome from './ContentHome'
 import Modal from './Modal'
 import ModalMovie from './ModalMovie'
+import ProfileModal from './ProfileModal'
 
-export default function Body({name, modal, setModal,movieview,setMovieView}){
+export default function Body({name, modal, setModal,movieview,setMovieView, profileModal, setProfileModal}){
 
     const [correo, setCorreo] = useState(
        window.localStorage.getItem('correo')
@@ -57,7 +58,8 @@ export default function Body({name, modal, setModal,movieview,setMovieView}){
 
     return (
         <div className="body">
-            {modal  && <Modal name={name} setModal={setModal} Perfil= {perfil} correo = {correo}/>}
+            {modal  && <Modal name={name} setModal={setModal} />}
+            {profileModal  && <ProfileModal name={name} setProfileModal={setProfileModal}/>}
             {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} Perfil= {perfil}/>}
             <ContentHome name={"Viendo"} movies = {viendo} movieview={movieview} setMovieView={setMovieView}/>
             <ContentHome name={"Sugerencias"} movies = {[]}/>

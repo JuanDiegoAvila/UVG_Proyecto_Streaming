@@ -70,6 +70,11 @@ function Register() {
             if(!resp.status){
                 setSms('USUARIO YA EXISTENTE') 
             }
+
+            window.localStorage.setItem('correo', mail)
+            const list = [...resp.user]
+            window.localStorage.setItem('id-usuario', list[0].id)
+
             setSigned(resp.status)
         }
 

@@ -33,7 +33,7 @@ function Login() {
     const logIn = async () => {
         
         const fet = 'http://localhost:5000/passcheck/' + correo + '/'+cont
-        window.localStorage.setItem('correo', correo)
+        
 
         const log = await fetch(fet)
         .then((response) => {return response.json()})
@@ -47,7 +47,8 @@ function Login() {
         .then((responseInJSON) => { return responseInJSON })
 
         window.localStorage.setItem('suscripcion', log2[0].suscripcion)
-
+        window.localStorage.setItem('id-usuario', log2[0].id)
+        window.localStorage.setItem('correo', log2[0].correo)
         setloged(log.completado)
     }
 
