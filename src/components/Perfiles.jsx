@@ -7,6 +7,7 @@ function Perfiles(){
 
     const [correo, setCorreo] = useState(window.localStorage.getItem('correo'))
     const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
+    const [idPerfil, setIdPerfil] = useState(window.localStorage.getItem('id-perfil'))
     const [perfiles, setPerfiles] = useState([])
     const [perfil, setPerfil] = useState(false)
     const [limit, setLimit] = useState(0)
@@ -16,12 +17,27 @@ function Perfiles(){
 
     let navigate = useNavigate();
 
+    const handlePerfil = async (id) => {
+        
+        console.log(id)
+        const fet = "http://localhost:5000/viendo/"+id+"/"+true
 
-    const handleClick = (per) => {
+        const response = await fetch(fet)
+        .then((response) => {return response.json()}
+        ).then((responseInJSON) => { return responseInJSON })
+
+    }
+
+    const handleClick = async(per) => {
         if(!per.viendo){
+
+            await handlePerfil(per.id_perfil)
+
+
             window.localStorage.setItem('perfil', per.nombre)
             window.localStorage.setItem('id-perfil', per.id_perfil)
             setPerfil(true)
+
         }  else{
             setSms('Perfil en uso')
         } 

@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom'
 import {useEffect, useState} from "react"
 import {useNavigate} from 'react-router-dom'
 
-export default function ModalMovie({movie, setMovieView, boton}) {
+export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnuncios}) {
     
     const [correo, setCorreo] = useState(
         window.localStorage.getItem('correo')
     )
 
     const [idperfil, setIdperfil] = useState(window.localStorage.getItem('id-perfil'))
+    const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
 
     let navigate = useNavigate();
 
@@ -37,6 +38,24 @@ export default function ModalMovie({movie, setMovieView, boton}) {
         
     }
 
+    const handleExit = () => {
+
+        setMovieView([false,null])
+
+        if(!boton){
+            window.location.reload()
+        }
+    }
+
+    const VistoB = () => {
+        if(suscripcion === "Gratis"){
+            const duracion = movie.duracion
+            const cantidad_anuncios = Math.round(duracion/15)
+            setAnuncios([true, cantidad_anuncios])
+        }
+        MovieWatched(movie.codigo) 
+    }
+
 
     const MovieWatched = async (codigo) => {
         //Hacer el query para insert en visto
@@ -55,9 +74,6 @@ export default function ModalMovie({movie, setMovieView, boton}) {
         const resp = await fetch('http://localhost:5000/visto/'+idperfil, options)
         .then((response) => {return response.json()})
         .then((responseInJSON) => { return responseInJSON })
-        console.log(resp.status)
-
-        window.location.reload()
     }
 
     const Favorite = async (codigo) => {
@@ -87,12 +103,12 @@ export default function ModalMovie({movie, setMovieView, boton}) {
                 textAlign: "center"
             } 
             }>
-                <button id= {"transparentx"} onClick={() => setMovieView([false,null])} className="exitM"><img src='/img/exit.png'/></button>
+                <button id= {"transparentx"} onClick={() => handleExit()} className="exitM"><img src='/img/exit.png'/></button>
                 <h2>{movie.nombre}</h2>
                 <img className="banner" src={movie.imagen}/>
                 <div className="button-container">                    
                     <button onClick = { () => {SeeMovie(movie.codigo)} }id="ViewNav">Ver</button>
-                    {boton && <button onClick = { () => {MovieWatched(movie.codigo)} }id="ViewNav">Visto</button>}
+                    {boton && <button onClick = { () => {VistoB()} }id="ViewNav">Visto</button>}
                     <button onClick = { () => {Favorite(movie.codigo)} }id="ViewNav">Agregar a favoritos</button>    
                 </div>
                 

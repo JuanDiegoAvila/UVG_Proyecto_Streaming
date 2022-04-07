@@ -7,7 +7,7 @@ import ProfileModal from './ProfileModal'
 import ModalMovie from './ModalMovie'
 import ContentHome from './ContentHome';
 
-export default function Search({name, modal, setModal,movieview,setMovieView, profileModal, setProfileModal}){
+export default function Search({name, modal, setModal,movieview,setMovieView, profileModal, setProfileModal,anuncios, setAnuncios}){
 
     const [title, setTitle] = useState('')
     const [checked, setChecked] = useState([false,false,false,false,false,false,true])
@@ -45,7 +45,6 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
 
 
         const final = [...new Map(mov.map(item => [item.codigo, item])).values()]
-
         setMovies(final)
 
         resetForm()
@@ -66,8 +65,8 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
         <div className="body">
             {modal  && <Modal name={name} setModal={setModal}/>}
             {profileModal  && <ProfileModal name={name} setProfileModal={setProfileModal}/>}
-            {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView}/>}
-            {anuncios[0]  && <Anuncios cantidad = {anuncios[1]} setAnuncios = {setAnuncios}/>}
+            {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} anuncios={anuncios} setAnuncios={setAnuncios}/>}
+            
             <label className='search'>
                 <input 
                     type="text" 

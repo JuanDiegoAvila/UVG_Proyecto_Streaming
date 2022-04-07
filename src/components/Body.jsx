@@ -28,6 +28,18 @@ export default function Body({name, modal, setModal,movieview,setMovieView, prof
     const [sugerencias, setSugerencias] = useState([])
     const [favoritos, setFavoritos] = useState([])
 
+
+    const getMovies = async() => {
+        let fet = "http://localhost:5000/pelis"
+
+        const response = await fetch(fet)
+        .then((response) => {return response.json()}
+        ).then((responseInJSON) => { return responseInJSON })
+
+        setSugerencias([...response])
+
+    }
+
     useEffect( async() => {
         console.log(idperfil)
         let fet1 = "http://localhost:5000/visto/"+idperfil
@@ -55,16 +67,26 @@ export default function Body({name, modal, setModal,movieview,setMovieView, prof
 
         setFavoritos([...responseF])
 
-    }, [])
+        let fet4 = "http://localhost:5000/recom/"+idperfil
 
+        const responseR = await fetch(fet4)
+        .then((response) => {return response.json()}
+        ).then((responseInJSON) => { return responseInJSON })
+
+        const final = [...new Map(responseR.map(item => [item.codigo, item])).values()]
+
+        responseR.length === 0 ? getMovies() : setSugerencias([...final])
+        
+
+    }, [])
     return (
         <div className="body">
             {modal  && <Modal name={name} setModal={setModal} />}
             {profileModal  && <ProfileModal name={name} setProfileModal={setProfileModal}/>}
-            {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} Perfil= {perfil} boton = {movieview[2]}/>}
+            {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} Perfil= {perfil} boton = {movieview[2]} anuncios={anuncios} setAnuncios={setAnuncios}/>}
             {anuncios[0]  && <Anuncios cantidad = {anuncios[1]} setAnuncios = {setAnuncios}/>}
             <ContentHome name={"Viendo"} movies = {viendo} movieview={movieview} setMovieView={setMovieView} boton={true}/>
-            <ContentHome name={"Sugerencias"} movies = {[]} boton={false}/>
+            <ContentHome name={"Sugerencias"} movies = {sugerencias} boton={false} setMovieView={setMovieView} />
             <ContentHome name={"Favoritos"} movies = {favoritos} movieview={movieview} setMovieView={setMovieView} boton={false}/>
             <ContentHome name={"Visto"} movies ={vistos} movieview={movieview} setMovieView={setMovieView} boton={false}/>
         </div>

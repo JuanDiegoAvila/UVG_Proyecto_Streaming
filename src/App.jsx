@@ -14,7 +14,7 @@ function App() {
   const [search, setSearch] =  useState(false)
   const [name, setName] = useState(window.localStorage.getItem('perfil'))
   const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
-  const [anuncios, setAnuncios] = useState([false,0])
+  const [anuncios, setAnuncios] = useState([false,9])
 
   return (
     <div className="App">

@@ -16,6 +16,12 @@
     flex-direction: column;
     height: 40vh;
 }
+.smsPM{
+    color: #E8D754;
+    font-size: 18;
+    font-weight: bold;
+    align-self: center;
+}
 .Pmodal h2{
     border-bottom: 1px solid #ddd;
     color: #E0E2DB;
