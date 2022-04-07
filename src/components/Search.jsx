@@ -67,6 +67,7 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
             {modal  && <Modal name={name} setModal={setModal}/>}
             {profileModal  && <ProfileModal name={name} setProfileModal={setProfileModal}/>}
             {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView}/>}
+            {anuncios[0]  && <Anuncios cantidad = {anuncios[1]} setAnuncios = {setAnuncios}/>}
             <label className='search'>
                 <input 
                     type="text" 

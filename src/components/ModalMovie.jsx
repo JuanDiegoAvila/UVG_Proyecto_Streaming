@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {useEffect, useState} from "react"
 import {useNavigate} from 'react-router-dom'
 
-export default function ModalMovie({movie, setMovieView}) {
+export default function ModalMovie({movie, setMovieView, boton}) {
     
     const [correo, setCorreo] = useState(
         window.localStorage.getItem('correo')
@@ -56,6 +56,8 @@ export default function ModalMovie({movie, setMovieView}) {
         .then((response) => {return response.json()})
         .then((responseInJSON) => { return responseInJSON })
         console.log(resp.status)
+
+        window.location.reload()
     }
 
     const Favorite = async (codigo) => {
@@ -89,9 +91,9 @@ export default function ModalMovie({movie, setMovieView}) {
                 <h2>{movie.nombre}</h2>
                 <img className="banner" src={movie.imagen}/>
                 <div className="button-container">                    
-                        <button onClick = { () => {SeeMovie(movie.codigo)} }id="ViewNav">Ver</button>
-                        <button onClick = { () => {MovieWatched(movie.codigo)} }id="ViewNav">Visto</button>
-                        <button onClick = { () => {Favorite(movie.codigo)} }id="ViewNav">Agregar a favoritos</button>    
+                    <button onClick = { () => {SeeMovie(movie.codigo)} }id="ViewNav">Ver</button>
+                    {boton && <button onClick = { () => {MovieWatched(movie.codigo)} }id="ViewNav">Visto</button>}
+                    <button onClick = { () => {Favorite(movie.codigo)} }id="ViewNav">Agregar a favoritos</button>    
                 </div>
                 
             </div>  

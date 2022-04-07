@@ -8,18 +8,46 @@ export default function ProfileModal({name, setProfileModal}) {
     const subtype=["Gratis","Estandar","Avanzada"]
     const checked = [false,false,false]
     const [correo, setCorreo] = useState(window.localStorage.getItem('correo'))
-
+    const [idUsuario, setIdUsuario] = useState(window.localStorage.getItem('id-usuario'))
+    const [limit, setLimit] = useState(0)
     const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
     const [sub, setSub] = useState(suscripcion)
     const [sms,setSms] = useState('')
     let navigate = useNavigate();
+    
+    useEffect(() => {
+        switch (sub) {
+            case "Gratis":
+                setLimit(1)
+                break;
+            case "Estandar":
+                setLimit(4)
+                break;
+            case "Avanzada":
+                setLimit(8)
+                break
+            default:
+                break;
+        }
+    }, [sub])
 
+    
     
     const update = async() => {
         if(sub != suscripcion){
             console.log('cambio')
             window.localStorage.setItem('suscripcion', sub)
+
+            const fet = "http://localhost:5000/profile/"+idUsuario+"/"+sub+"/"+limit
+
+            const response = await fetch(fet)
+            .then((response) => {return response.json()}
+            ).then((responseInJSON) => { return responseInJSON })
+
+
             setSms("")
+            setProfileModal(false)
+            window.location.reload()
         }
         else
         {

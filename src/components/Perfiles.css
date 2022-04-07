@@ -38,7 +38,12 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
-
+.sms{
+    color: #E0E2DB;
+    font-size: 18;
+    font-weight: bold;
+    align-self: center;
+}
 .Add-Perfiles img{
     max-width: 40%;
     max-height: 40%;

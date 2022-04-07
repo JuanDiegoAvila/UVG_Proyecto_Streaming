@@ -11,6 +11,7 @@ function Perfiles(){
     const [perfil, setPerfil] = useState(false)
     const [limit, setLimit] = useState(0)
     const [add, setAdd] = useState(true)
+    const [sms,setSms] = useState('')
 
 
     let navigate = useNavigate();
@@ -21,7 +22,9 @@ function Perfiles(){
             window.localStorage.setItem('perfil', per.nombre)
             window.localStorage.setItem('id-perfil', per.id_perfil)
             setPerfil(true)
-        }   
+        }  else{
+            setSms('Perfil en uso')
+        } 
     }
 
     const handleLimit = () => {
@@ -100,7 +103,7 @@ function Perfiles(){
                     <img src = {"/img/plus.png"}/>
                 </div>
             }
-            
+            <div className='smsP'>{sms}</div>
             </div>
         </div>
         

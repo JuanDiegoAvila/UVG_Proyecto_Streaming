@@ -6,8 +6,10 @@ import {useNavigate} from 'react-router-dom'
 export default function Modal({name, setModal}) {
     
     const [correo, setCorreo] = useState(window.localStorage.getItem('correo'))
+    const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
     const [perfiles, setPerfiles] = useState([])
     let navigate = useNavigate();
+    const [limit, setLimit] = useState(0)
 
     useEffect(async () => {
 
@@ -23,6 +25,23 @@ export default function Modal({name, setModal}) {
 
     }, [])
 
+    useEffect(() => {
+        switch (suscripcion) {
+            case "Gratis":
+                setLimit(1)
+                break;
+            case "Estandar":
+                setLimit(4)
+                break;
+            case "Avanzada":
+                setLimit(8)
+                break
+            default:
+                break;
+        }
+
+    }, [])
+
 
     return ReactDOM.createPortal((
         <div className="modal-backdrop">
@@ -35,16 +54,29 @@ export default function Modal({name, setModal}) {
                 <h2>{name}</h2>
                 <div className="profile-container">
                 {
-                    perfiles.map((per,index) => 
-                        <button key = {index} id={"transparent"} onClick ={ () => {
-                                console.log(per.nombre)
-                                window.localStorage.setItem('perfil', per.nombre)
-                                window.localStorage.setItem('id-perfil', per.id_perfil)
-                                window.location.reload()
-                                }}>
-                            <h3>{per.nombre}
-                            </h3>
-                        </button>)
+                    perfiles.map((per,index) => {
+
+                        if(per.activo && index < limit){
+
+                            return(
+                                <button key = {index} id={"transparent"} onClick ={ () => {
+                                        console.log(per.nombre)
+
+                                        if(!per.viendo){
+                                            window.localStorage.setItem('perfil', per.nombre)
+                                            window.localStorage.setItem('id-perfil', per.id_perfil)
+                                            window.location.reload()
+                                        }
+                                        
+                                        }}>
+                                    <h3>{per.nombre}
+                                    </h3>
+                                </button>
+                            )
+                        }
+                    
+                    })
+                       
                 }
                 </div>
                 
