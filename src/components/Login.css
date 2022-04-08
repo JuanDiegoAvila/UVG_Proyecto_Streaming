@@ -22,7 +22,7 @@ code {
     height: 50vh;
     width: 50vw;
     border-radius: 20px;
-    background-color: #476C9B;
+    background: linear-gradient(to top, #476C9B, #1C324F);
 }
 
 .container input {

@@ -34,7 +34,7 @@
 
     margin-top: 30px;
     border-radius: 10px;
-    background: #476C9B;
+    background: linear-gradient(to top, #476C9B, #1C324F);
     width: 90%;
     height: 65%;
 }
@@ -67,7 +67,7 @@
     align-self: center;
 
     margin-top: 30px;
-    background: #476C9B;
+    background: linear-gradient(to top, #476C9B, #1C324F);
     width: 90%;
     height: 10%;
     border-radius: 10px;

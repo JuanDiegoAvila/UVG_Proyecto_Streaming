@@ -15,7 +15,7 @@
 
 .Perfil {
     display: flex ;
-    background-color: #476C9B;
+    background: linear-gradient(to top, #476C9B, #1C324F);
     width: 15vw;
     height: 15vh;
     text-align: center;

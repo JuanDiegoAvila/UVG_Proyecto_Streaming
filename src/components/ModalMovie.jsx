@@ -42,7 +42,7 @@ export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnu
 
         setMovieView([false,null])
 
-        if(!boton){
+        if(!boton || suscripcion!='Gratis'){
             window.location.reload()
         }
     }
@@ -99,7 +99,7 @@ export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnu
     return ReactDOM.createPortal((
         <div className="modalbackdrop">
             <div className="modalm" style={{
-                border: "4px solid", 
+                border: "1px solid", 
                 textAlign: "center"
             } 
             }>

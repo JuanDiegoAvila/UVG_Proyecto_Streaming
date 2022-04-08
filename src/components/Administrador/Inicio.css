@@ -20,7 +20,7 @@
 
 .inicio-container button{
     
-    background-color: #476C9B;
+    background: linear-gradient(to top, #476C9B, #1C324F);
     height: auto;
     width: 60vh;
     color:  #E0E2DB;

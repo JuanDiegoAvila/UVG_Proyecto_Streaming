@@ -87,7 +87,7 @@ export default function Modal({name, setModal}) {
     return ReactDOM.createPortal((
         <div className="modal-backdrop">
             <div className="modal" style={{
-                border: "4px solid", 
+                border: "1px solid", 
                 textAlign: "center"
             } 
             }>

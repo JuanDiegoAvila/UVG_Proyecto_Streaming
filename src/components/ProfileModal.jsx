@@ -58,7 +58,7 @@ export default function ProfileModal({name, setProfileModal}) {
     return ReactDOM.createPortal((
         <div className="Pmodal-backdrop">
             <div className="Pmodal" style={{
-                border: "4px solid", 
+                border: "1px solid", 
                 textAlign: "center"
             } 
             }>

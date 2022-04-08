@@ -7,7 +7,7 @@ function UsuariosA() {
     let navigate = useNavigate();
 
     const [usuarios, setUsuarios] = useState([])
-    const [modalA, setModalA] = useState([false, null])
+    const [modalA, setModalA] = useState([false, null,'usuarios'])
     const [user, setUser] = useState("")
     const [correo, setCorreo] = useState("")
     const [contra, setContra] = useState("")
@@ -66,7 +66,7 @@ function UsuariosA() {
 
     return(
         <div className ="usuarios">
-            {modalA[0]  && <ModalAdmin objectU={modalA[1]} setModalA={setModalA}/>}
+            {modalA[0]  && <ModalAdmin tabla={modalA[2]} objectU={modalA[1]} setModalA={setModalA}/>}
             <button id= {"transparent-backU"} onClick={() => navigate('/Administrador')} className="backU"><img src='/img/arrow.png'/></button>
             
             <div className = "contA">
@@ -85,7 +85,7 @@ function UsuariosA() {
                 {
                     usuarios.map((usuario, index) => {
                         return(
-                            <div className = "user-container" key = {index} onClick={() =>{setModalA([true, usuario])}}>
+                            <div className = "user-container" key = {index} onClick={() =>{setModalA([true, usuario,'usuarios'])}}>
                                 <div className = "usuarioA" >{usuario.id}</div>
                                 <div className = "usuarioA" >{usuario.nombre}</div>
                                 <div className = "usuarioA" >{usuario.correo}</div>
