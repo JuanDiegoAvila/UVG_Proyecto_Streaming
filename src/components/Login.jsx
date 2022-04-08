@@ -52,6 +52,24 @@ function Login() {
         setloged(log.completado)
     }
 
+    const Admin = async () => {
+        
+        const fet = 'http://localhost:5000/admin/' + correo + '/'+cont
+        
+
+        const log = await fetch(fet)
+        .then((response) => {return response.json()})
+        .then((responseInJSON) => { return responseInJSON })
+        console.log(log.completado)
+        setAdmin(log.completado)
+        window.localStorage.setItem('admin', correo)
+
+        if(log.completado){
+            navigate('/Administrador')
+        }
+       
+    }
+
     return (
         <div className = "login-container">
             
@@ -85,7 +103,7 @@ function Login() {
 
                 
                 
-                <button onClick={() => resetForms()}> Administrador </button>
+                <button onClick={() => {Admin(); admin? null:resetForms()}}> Administrador </button>
 
             </div>
 

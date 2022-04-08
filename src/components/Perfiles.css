@@ -24,6 +24,7 @@
     margin-inline: 20px;
     border-radius: 10px;
     cursor: pointer;
+    flex-direction: column;
     
 }
 
@@ -42,7 +43,6 @@
     color: #E0E2DB;
     font-size: 18;
     font-weight: bold;
-    align-self: center;
 }
 .Add-Perfiles img{
     max-width: 40%;

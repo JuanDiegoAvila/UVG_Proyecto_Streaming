@@ -106,6 +106,7 @@ function Perfiles(){
                         <div key={index} onClick = {() => {handleClick(per)}}>
                             <div className="Perfil" >
                                 <h1>{per.nombre}</h1>
+                                <div className='smsP'>{sms}</div>
                             </div>
                          </div>
                         )
@@ -119,7 +120,7 @@ function Perfiles(){
                     <img src = {"/img/plus.png"}/>
                 </div>
             }
-            <div className='smsP'>{sms}</div>
+            
             </div>
         </div>
         
