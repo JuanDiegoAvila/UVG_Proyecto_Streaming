@@ -1,10 +1,128 @@
+import './AnunciosA.css'
 
-function AnunciosA() {
-    return(
-        <div>
+import ReactDOM from 'react-dom'
+import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 
+import ModalAdmin from './ModalAdmin'
+
+export default function AnunciosA() {
+
+    let navigate = useNavigate()
+    let [anuncios, setAnuncios] = useState([])
+    let [contenido, setContenido] = useState('')
+    let [link, setLink] = useState('')
+    let [anunciante, setAnunciante] = useState('')
+
+    const [modalA, setModalA] = useState([false, null, 'usuarios'])
+
+    const refreshAnuncios = async () => {
+        const fet = 'http://localhost:5000/anuncio'
+
+        const log = await fetch(fet)
+            .then((response) => { return response.json() })
+            .then((responseInJSON) => { return responseInJSON })
+
+        setAnuncios([...log])
+    }
+
+    useEffect(() => {
+        refreshAnuncios()
+    }, [])
+
+    const handleClick = () => {
+
+        createAnuncio()
+
+        setAnunciante('')
+        setLink('')
+        setContenido('')
+        window.location.reload();
+
+    }
+
+    const createAnuncio = async () => {
+        const json = {
+            anunciante: anunciante,
+            contenido: contenido,
+            link: link
+        }
+        console.log(json)
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
+        }
+        const resp = await fetch('http://localhost:5000/anuncio', options)
+            .then((response) => { return response.json() })
+            .then((responseInJSON) => { return responseInJSON })
+    }
+
+
+
+    return (
+        <div className="anuncios-AN">
+            {modalA[0] && <ModalAdmin tabla={modalA[2]} objectU={modalA[1]} setModalA={setModalA} />}
+            <button id={"transparent-backAn"} onClick={() => navigate('/Administrador')} className="backAn"><img src='/img/arrow.png' /></button>
+
+            <div className="contAN">
+
+                <div className="column-containerAn">
+                    <div className="anuncioB" >Id</div>
+                    <div className="anuncioB" >Contenido</div>
+                    <div className="anuncioB">Link</div>
+                </div>
+
+                <div style={{ overflowY: "scroll", scrollbarWidth: "none", msOverflowStyle: "none" }}>
+
+
+                    {
+                        anuncios.map((anuncio, index) => {
+                            return (
+                                <div className="anuncio-containerAA" key={index} onClick={() => { setModalA([true, anuncio, 'anuncios']) }}>
+                                    <div className="anuncioA" >{anuncio.id_anunciante}</div>
+                                    <div className="anuncioA" >{anuncio.contenido}</div>
+                                    <div className="anuncioA" style={{ justifyContent: "start" }}>{anuncio.link}</div>
+                                </div>
+                            )
+
+                        })
+                    }
+
+                </div>
+
+            </div>
+
+            <div className="create-anuncio">
+                <div className="grid-anuncio">
+                    <button onClick={() => handleClick()}> Crear </button>
+
+                    <input
+                        placeholder='contenido'
+                        type="text"
+                        onChange={(e) => { setContenido(e.target.value) }}
+                        value={contenido}
+                    />
+
+                    <input
+                        placeholder='link'
+                        type="text"
+                        onChange={(e) => { setLink(e.target.value) }}
+                        value={link}
+                    />
+
+                    <input
+                        placeholder='anunciante'
+                        type="text"
+                        onChange={(e) => { setAnunciante(e.target.value) }}
+                        value={anunciante}
+                    />
+
+
+                </div>
+            </div>
         </div>
     )
 }
-
-export default AnunciosA

@@ -1,4 +1,4 @@
-.anuncios-AN {
+.anunciantes {
     height: 100vh;
     width: 100vw;
     background-color: #101419;
@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 
-#transparent-backAn {
+#transparent-backANU {
     background-color: transparent;
     border: transparent;
     width: 50px;
@@ -15,17 +15,17 @@
     margin-top: 20px;
 }
 
-.backAn {
+.backANU {
     margin-top: 5px;
     margin-right: 5px;
 }
 
-.anuncios-AN button img {
+.anunciantes button img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.contAN {
+.contANU {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,9 +39,9 @@
     height: 65%;
 }
 
-.column-containerAn {
+.column-containerANU {
     display: grid;
-    grid-template-columns: 10% 45% 45%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 50px;
     width: 100%;
     height: 50px;
@@ -50,9 +50,9 @@
 
 }
 
-.anuncio-containerAA {
+.anunciante-containerA {
     display: grid;
-    grid-template-columns: 10% 45% 45%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 50px;
     width: 100%;
     height: 50px;
@@ -61,7 +61,7 @@
 
 }
 
-.create-anuncio {
+.create-anunciante {
     display: flex;
     justify-content: center;
     align-self: center;
@@ -73,17 +73,14 @@
     border-radius: 10px;
 }
 
-.anuncioA {
+.anuncianteA {
     display: flex;
     justify-content: center;
     align-self: center;
     color: #E0E2DB;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    white-space: nowrap;
 }
 
-.anuncioB {
+.anuncianteB {
     display: flex;
     justify-content: center;
     font-weight: bolder;
@@ -91,17 +88,17 @@
     color: #E0E2DB;
 }
 
-.grid-anuncio {
+.grid-anunciante {
     display: grid;
     align-self: center;
     justify-content: center;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 50px;
     width: 100%;
     height: 50px;
 }
 
-.grid-anuncio input {
+.grid-anunciante input {
     display: flex;
     justify-content: center;
     align-self: center;
@@ -113,7 +110,7 @@
     background-color: #101419;
 }
 
-.grid-anuncio button {
+.grid-anunciante button {
     display: flex;
     justify-content: center;
     align-self: center;
@@ -125,7 +122,7 @@
     background-color: #101419;
 }
 
-.grid-anuncio select {
+.grid-anunciante select {
     display: flex;
     justify-content: center;
     align-self: center;
