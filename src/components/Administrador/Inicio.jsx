@@ -13,6 +13,7 @@ function Inicio() {
                 <button onClick={() => { navigate('/Usuarios') }}>Usuarios</button>
                 <button onClick={() => { navigate('/Anuncios') }}>Anuncios</button>
                 <button onClick={() => { navigate('/Anunciantes') }}>Anunciantes</button>
+                <button onClick={() => { navigate('/Reportes') }}>Reportes</button>
                 <button onClick={() => { navigate('/') }}>Regresar</button>
             </div>
         </div>

@@ -11,16 +11,17 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
 
     const [idperfil, setIdperfil] = useState(window.localStorage.getItem('id-perfil'))
     const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
-
+    
     let navigate = useNavigate();
 
     const SeeMovie = async (codigo) => {
         window.open(`${movie.link}`)
         //Hacer el query para insert en viendo
-
+        console.log(suscripcion)
         console.log('Se agrego a vista')
         const json = {
-            idmovie: codigo
+            idmovie: codigo,
+            sus:suscripcion
         }
 
         const options = {
@@ -33,7 +34,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
         const resp = await fetch('http://localhost:5000/viendo/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
-        console.log(resp.status)
+        
 
 
     }
@@ -62,7 +63,8 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
         //Hacer el query para insert en visto
         console.log('Se agrego a vista')
         const json = {
-            idmovie: codigo
+            idmovie: codigo,
+            sus:suscripcion
         }
 
         const options = {
@@ -83,7 +85,8 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
         //Hacer el query para insert en favorito
         console.log('Se agrego a favoritos')
         const json = {
-            idmovie: codigo
+            idmovie: codigo,
+            sus:suscripcion
         }
 
         const options = {

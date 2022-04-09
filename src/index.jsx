@@ -11,6 +11,7 @@ import AnunciosA from './components/Administrador/AnunciosA'
 import PeliculasA from './components/Administrador/PeliculasA'
 import UsuariosA from './components/Administrador/UsuariosA'
 import AnunciantesA from './components/Administrador/AnunciantesA';
+import Reportes from './components/Administrador/Reportes';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { render } from "react-dom"
@@ -32,7 +33,8 @@ render(
         <Route exact path='/Anunciantes' element={<AnunciantesA />} />
         <Route exact path='/Peliculas' element={<PeliculasA />} />
         <Route exact path='/Usuarios' element={<UsuariosA />} />
-
+        <Route exact path='/Reportes' element={<Reportes />} />
+        
       </Routes>
 
     </BrowserRouter>
