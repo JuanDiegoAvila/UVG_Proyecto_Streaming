@@ -1,10 +1,10 @@
 import './ModalMovie.css'
 import ReactDOM from 'react-dom'
-import {useEffect, useState} from "react"
-import {useNavigate} from 'react-router-dom'
+import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 
-export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnuncios}) {
-    
+export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAnuncios }) {
+
     const [correo, setCorreo] = useState(
         window.localStorage.getItem('correo')
     )
@@ -20,7 +20,7 @@ export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnu
 
         console.log('Se agrego a vista')
         const json = {
-            idmovie:codigo
+            idmovie: codigo
         }
 
         const options = {
@@ -30,30 +30,31 @@ export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnu
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/viendo/'+idperfil, options)
-        .then((response) => {return response.json()})
-        .then((responseInJSON) => { return responseInJSON })
+        const resp = await fetch('http://localhost:5000/viendo/' + idperfil, options)
+            .then((response) => { return response.json() })
+            .then((responseInJSON) => { return responseInJSON })
         console.log(resp.status)
 
-        
+
     }
 
     const handleExit = () => {
 
-        setMovieView([false,null])
+        setMovieView([false, null])
 
-        if(!boton || suscripcion!='Gratis'){
+        if (!boton || suscripcion != 'Gratis') {
             window.location.reload()
         }
     }
 
     const VistoB = () => {
-        if(suscripcion === "Gratis"){
+        if (suscripcion === "Gratis") {
             const duracion = movie.duracion
-            const cantidad_anuncios = Math.round(duracion/15)
+            const cantidad_anuncios = Math.round(duracion / 15)
             setAnuncios([true, cantidad_anuncios])
         }
-        MovieWatched(movie.codigo) 
+        MovieWatched(movie.codigo)
+
     }
 
 
@@ -61,7 +62,7 @@ export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnu
         //Hacer el query para insert en visto
         console.log('Se agrego a vista')
         const json = {
-            idmovie:codigo
+            idmovie: codigo
         }
 
         const options = {
@@ -71,16 +72,18 @@ export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnu
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/visto/'+idperfil, options)
-        .then((response) => {return response.json()})
-        .then((responseInJSON) => { return responseInJSON })
+        const resp = await fetch('http://localhost:5000/visto/' + idperfil, options)
+            .then((response) => { return response.json() })
+            .then((responseInJSON) => { return responseInJSON })
+
+        window.location.reload()
     }
 
     const Favorite = async (codigo) => {
         //Hacer el query para insert en favorito
         console.log('Se agrego a favoritos')
         const json = {
-            idmovie:codigo
+            idmovie: codigo
         }
 
         const options = {
@@ -90,30 +93,30 @@ export default function ModalMovie({movie, setMovieView, boton, anuncios, setAnu
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/fav/'+idperfil, options)
-        .then((response) => {return response.json()})
-        .then((responseInJSON) => { return responseInJSON })
+        const resp = await fetch('http://localhost:5000/fav/' + idperfil, options)
+            .then((response) => { return response.json() })
+            .then((responseInJSON) => { return responseInJSON })
         console.log(resp.status)
     }
 
     return ReactDOM.createPortal((
         <div className="modalbackdrop">
             <div className="modalm" style={{
-                border: "1px solid", 
+                border: "1px solid",
                 textAlign: "center"
-            } 
+            }
             }>
-                <button id= {"transparentx"} onClick={() => handleExit()} className="exitM"><img src='/img/exit.png'/></button>
+                <button id={"transparentx"} onClick={() => handleExit()} className="exitM"><img src='/img/exit.png' /></button>
                 <h2>{movie.nombre}</h2>
-                <img className="banner" src={movie.imagen}/>
-                <div className="button-container">                    
-                    <button onClick = { () => {SeeMovie(movie.codigo)} }id="ViewNav">Ver</button>
-                    {boton && <button onClick = { () => {VistoB()} }id="ViewNav">Visto</button>}
-                    <button onClick = { () => {Favorite(movie.codigo)} }id="ViewNav">Agregar a favoritos</button>    
+                <img className="banner" src={movie.imagen} />
+                <div className="button-container">
+                    <button onClick={() => { SeeMovie(movie.codigo) }} id="ViewNav">Ver</button>
+                    {boton && <button onClick={() => { VistoB() }} id="ViewNav">Visto</button>}
+                    <button onClick={() => { Favorite(movie.codigo) }} id="ViewNav">Agregar a favoritos</button>
                 </div>
-                
-            </div>  
+
+            </div>
         </div>
-        
+
     ), document.body)
 }
