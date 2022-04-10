@@ -13,7 +13,7 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
     if (llaves[3] == 'contraseña') {
         llaves.splice(3, 1)
     }
-    if (llaves[0] === "id" || llaves[0] === "codigo" || llaves[0] === "id_anunciante") {
+    if (llaves[0] === "id" || llaves[0] === "codigo" || llaves[0] === "id_anunciante" || llaves[0] === "id_genero") {
         llaves.splice(0, 1)
     }
 

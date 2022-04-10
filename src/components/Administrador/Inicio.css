@@ -1,4 +1,4 @@
-.inicio{
+.inicio {
 
     width: 100vw;
     height: 100vh;
@@ -10,7 +10,7 @@
 
 }
 
-.inicio-container{
+.inicio-container {
 
     display: flex;
     flex-direction: column;
@@ -18,14 +18,14 @@
 
 }
 
-.inicio-container button{
-    
+.inicio-container button {
+
     background: linear-gradient(to top, #476C9B, #1C324F);
-    height: auto;
+    height: 40px;
     width: 60vh;
-    color:  #E0E2DB;
+    color: #E0E2DB;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 30px;
 
     overflow-wrap: break-word;

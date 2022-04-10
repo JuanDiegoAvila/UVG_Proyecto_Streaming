@@ -1,42 +1,12 @@
-.reporte-container {
-    width: 100vw;
+.generos-Ge {
     height: 100vh;
+    width: 100vw;
     background-color: #101419;
     display: flex;
     flex-direction: column;
 }
 
-.nav-bar-reporte {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.nav-bar-reporte button {
-    align-self: center;
-    background: linear-gradient(to top, #476C9B, #1C324F);
-    color: #E0E2DB;
-    border: 0px;
-    width: 100%;
-    height: 40px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-
-.instructions {
-    color: #E0E2DB;
-    text-align: center;
-    font-size: 15px;
-}
-
-.toggle-container {
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-}
-
-#transparent-backRE {
+#transparent-backGe {
     background-color: transparent;
     border: transparent;
     width: 50px;
@@ -45,17 +15,17 @@
     margin-top: 20px;
 }
 
-.backRE {
+.backGe {
     margin-top: 5px;
     margin-right: 5px;
 }
 
-.reporte-container button img {
+.generos-Ge button img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.contRE {
+.contGe {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,13 +35,13 @@
     margin-top: 30px;
     border-radius: 10px;
     background: linear-gradient(to top, #476C9B, #1C324F);
-    width: 95%;
-    height: 80%;
+    width: 90%;
+    height: 65%;
 }
 
-.generos-column-container {
+.column-containerGe {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 50px;
     width: 100%;
     height: 50px;
@@ -80,9 +50,9 @@
 
 }
 
-.generos-container {
+.generos-containerGe {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 50px;
     width: 100%;
     height: 50px;
@@ -91,8 +61,19 @@
 
 }
 
+.create-genero {
+    display: flex;
+    justify-content: center;
+    align-self: center;
 
-.genero-l {
+    margin-top: 30px;
+    background: linear-gradient(to top, #476C9B, #1C324F);
+    width: 90%;
+    height: 10%;
+    border-radius: 10px;
+}
+
+.generosA {
     display: flex;
     justify-content: center;
     align-self: center;
@@ -100,10 +81,9 @@
     overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
-    margin-right: 10px;
 }
 
-.genero-c {
+.generosB {
     display: flex;
     justify-content: center;
     font-weight: bolder;
@@ -111,80 +91,47 @@
     color: #E0E2DB;
 }
 
-.fecha-container {
+.grid-generos {
     display: grid;
     align-self: center;
     justify-content: center;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 50px;
     width: 100%;
     height: 50px;
 }
 
-.fecha-container input {
+.grid-generos input {
     display: flex;
     justify-content: center;
     align-self: center;
     width: auto;
     margin-left: 10px;
     margin-right: 10px;
-    text-align: center;
 
     color: #E0E2DB;
     background-color: #101419;
 }
 
-.fecha-container select {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-
-    color: #E0E2DB;
-    background-color: #101419;
-}
-
-.fecha-container button {
+.grid-generos button {
     display: flex;
     justify-content: center;
     align-self: center;
     width: auto;
     margin-left: 40px;
     margin-right: 40px;
-
     color: #E0E2DB;
     background-color: #101419;
 }
 
-.avanzadas {
-    margin-top: 20px;
-    background: linear-gradient(to top, #476C9B, #1C324F);
+.grid-generos select {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+
     color: #E0E2DB;
-    width: 30%;
-}
-
-
-.generos-column-container2 {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50px;
-    width: 100%;
-    height: 50px;
-
-    border-bottom: 1px solid #101419;
-
-}
-
-.generos-container2 {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50px;
-    width: 100%;
-    height: 50px;
-
-    border-bottom: 0.01px solid #101419;
-
+    background-color: #101419;
 }

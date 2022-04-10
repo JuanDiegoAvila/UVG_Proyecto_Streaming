@@ -49,7 +49,8 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
             ).then((responseInJSON) => { return responseInJSON })
         console.log(responseV)
 
-        setVistos([...responseV])
+        const viS = [...new Map(responseV.map(item => [item.codigo, item])).values()]
+        setVistos([...viS])
 
         let fet2 = "http://localhost:5000/viendo/" + idperfil
 

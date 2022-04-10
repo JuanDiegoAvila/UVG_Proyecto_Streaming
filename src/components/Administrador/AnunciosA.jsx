@@ -8,11 +8,11 @@ import ModalAdmin from './ModalAdmin'
 
 export default function AnunciosA() {
 
-    let navigate = useNavigate()
-    let [anuncios, setAnuncios] = useState([])
-    let [contenido, setContenido] = useState('')
-    let [link, setLink] = useState('')
-    let [anunciante, setAnunciante] = useState('')
+    const navigate = useNavigate()
+    const [anuncios, setAnuncios] = useState([])
+    const [contenido, setContenido] = useState('')
+    const [link, setLink] = useState('')
+    const [anunciante, setAnunciante] = useState('')
 
     const [modalA, setModalA] = useState([false, null, 'usuarios'])
 
