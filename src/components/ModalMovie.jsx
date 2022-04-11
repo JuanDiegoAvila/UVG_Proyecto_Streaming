@@ -78,7 +78,10 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
-        window.location.reload()
+        if(suscripcion!='Gratis')
+        {
+            window.location.reload()
+        }
     }
 
     const Favorite = async (codigo) => {
