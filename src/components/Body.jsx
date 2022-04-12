@@ -57,7 +57,7 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
         const responseVd = await fetch(fet2)
             .then((response) => { return response.json() }
             ).then((responseInJSON) => { return responseInJSON })
-
+        console.log(responseVd)
         const viN = [...new Map(responseVd.map(item => [item.codigo, item])).values()]
 
         setViendo([...viN])

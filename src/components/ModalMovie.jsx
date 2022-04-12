@@ -34,7 +34,8 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
         const resp = await fetch('http://localhost:5000/viendo/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
-        
+        console.log('lo vio')
+        console.log(resp)
 
 
     }
