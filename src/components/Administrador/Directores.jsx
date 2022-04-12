@@ -35,7 +35,7 @@ function Directores() {
         setNombre('')
         setApellido('')
 
-        window.location.reload();
+
 
     }
 
@@ -58,6 +58,8 @@ function Directores() {
         const resp = await fetch('http://localhost:5000/director', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
+
+        window.location.reload();
     }
 
 

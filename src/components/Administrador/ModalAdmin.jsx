@@ -17,7 +17,7 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
         llaves.splice(0, 1)
     }
 
-    const ident = (tabla === 'usuarios') || (tabla === 'anunciantes') ? objectU.id : (tabla === 'anuncios') ? objectU.contenido : objectU.codigo
+    const ident = (tabla === 'usuarios') || (tabla === 'anunciantes') || (tabla === 'directores') || (tabla === 'premios') || (tabla === 'actor') ? objectU.id : (tabla === 'anuncios') ? objectU.contenido : (tabla === 'generos') ? objectU.id_genero : objectU.codigo
 
     let navigate = useNavigate();
 

@@ -34,7 +34,7 @@ function Premios() {
 
         setNombre('')
         setDescripcion('')
-        window.location.reload()
+
     }
 
     const createPremios = async () => {
@@ -54,6 +54,7 @@ function Premios() {
         const resp = await fetch('http://localhost:5000/premio', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
+        window.location.reload()
     }
 
 

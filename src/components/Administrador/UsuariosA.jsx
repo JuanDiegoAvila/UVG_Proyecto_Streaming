@@ -36,7 +36,7 @@ function UsuariosA() {
         setCorreo("")
         setContra("")
         setSuscripcion("")
-        window.location.reload();
+
 
     }
 
@@ -61,7 +61,7 @@ function UsuariosA() {
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
-
+        window.location.reload();
     }
 
     return (

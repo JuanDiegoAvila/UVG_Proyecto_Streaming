@@ -35,7 +35,7 @@ function ActoresA() {
         setNombre('')
         setApellido('')
 
-        window.location.reload()
+
 
     }
 
@@ -58,6 +58,8 @@ function ActoresA() {
         const resp = await fetch('http://localhost:5000/actores', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
+
+        window.location.reload()
     }
 
 

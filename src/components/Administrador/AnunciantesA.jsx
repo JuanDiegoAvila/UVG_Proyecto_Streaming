@@ -32,19 +32,16 @@ export default function AnunciantesA() {
     }, [])
 
     const handleClick = () => {
-
         createAnunciante()
-
-        setAnuncian('')
-        window.location.reload();
 
     }
 
     const createAnunciante = async () => {
+
         const json = {
-            anunciante: anuncian,
+            anunciante: anuncian
         }
-        console.log(json)
+
         const options = {
             method: 'POST',
             headers: {
@@ -55,6 +52,11 @@ export default function AnunciantesA() {
         const resp = await fetch('http://localhost:5000/anunciante', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
+
+        console.log(resp)
+        setAnuncian('')
+
+        window.location.reload();
     }
 
 

@@ -13,7 +13,8 @@ function Login() {
     const [correo, setCorreo] = useState('')
     const [cont, setCont] = useState('')
     const [loged, setloged] = useState(false)
-
+    const [sms, setSms] = useState('')
+    const [ban, setBan] = useState('')
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -38,8 +39,8 @@ function Login() {
         const log = await fetch(fet)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
-        console.log(log.completado)
-
+        console.log(log.ban)
+        setBan(log.ban)
 
         const fet2 = 'http://localhost:5000/usersC/' + correo
         const log2 = await fetch(fet2)
@@ -99,9 +100,7 @@ function Login() {
 
 
                 </div>
-
-
-
+                {ban && <div className='sms1'>Cuenta baneada</div>}
                 <button onClick={() => { Admin(); admin ? null : resetForms() }}> Administrador </button>
 
             </div>

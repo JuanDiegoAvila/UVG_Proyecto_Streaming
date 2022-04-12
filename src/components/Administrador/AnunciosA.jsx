@@ -37,7 +37,6 @@ export default function AnunciosA() {
         setAnunciante('')
         setLink('')
         setContenido('')
-        window.location.reload();
 
     }
 
@@ -58,6 +57,9 @@ export default function AnunciosA() {
         const resp = await fetch('http://localhost:5000/anuncio', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
+        console.log(resp)
+        window.location.reload();
+
     }
 
 

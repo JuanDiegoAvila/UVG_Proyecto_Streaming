@@ -12,9 +12,9 @@ export default function Generos() {
     let [generos, setGeneros] = useState([])
     let [generoname, setGeneroname] = useState('')
 
-    const [modalA, setModalA] = useState([false, null, 'usuarios'])
+    const [modalA, setModalA] = useState([false, null, 'generos'])
 
-    const refreshAnuncios = async () => {
+    const refreshGeneros = async () => {
         const fet = 'http://localhost:5000/generos'
 
         const log = await fetch(fet)
@@ -25,18 +25,23 @@ export default function Generos() {
     }
 
     useEffect(() => {
-        refreshAnuncios()
+        refreshGeneros()
     }, [])
+
+    useEffect(() => {
+        refreshGeneros()
+    }, [generos])
 
     const handleClick = () => {
 
         createGenero()
         setGeneroname('')
-        window.location.reload();
+
 
     }
 
     const createGenero = async () => {
+
         const json = {
             genero: generoname
         }
@@ -48,9 +53,10 @@ export default function Generos() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/anuncio', options)
+        const resp = await fetch('http://localhost:5000/generos', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
+        refreshGeneros();
     }
 
 
@@ -73,7 +79,7 @@ export default function Generos() {
                     {
                         generos.map((genero, index) => {
                             return (
-                                <div className="generos-containerGe" key={index} onClick={() => { setModalA([true, genero, 'anuncios']) }}>
+                                <div className="generos-containerGe" key={index} onClick={() => { setModalA([true, genero, 'generos']) }}>
                                     <div className="generosA" >{genero.id_genero}</div>
                                     <div className="generosA" >{genero.genero}</div>
                                 </div>
