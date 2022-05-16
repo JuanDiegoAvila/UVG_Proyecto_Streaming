@@ -78,3 +78,7 @@ code {
     align-self: center;
     margin-bottom: 10px;
 }
+
+.login-container button:hover{
+    cursor: pointer;
+}

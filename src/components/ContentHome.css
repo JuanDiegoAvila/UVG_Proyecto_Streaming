@@ -23,7 +23,6 @@
     height: auto;
     padding-left: 45px;
     padding-top: 20px;
-    padding-bottom: 30px;
     justify-content: center;
     align-items: center;
 }
@@ -53,4 +52,46 @@
     grid-Gap: 0px;
     grid-Auto-Rows: 165px;
     align-self: center;
+}
+
+
+.scroll::-webkit-scrollbar{
+    height:6px;
+    background-color:transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb{
+    visibility: hidden;
+}
+
+.scroll:hover::-webkit-scrollbar-thumb{
+    height: 6px;
+    background: #476C9B;
+    border-radius: 5px;
+    visibility: visible;
+}
+
+
+.scroll {
+    margin-left: 48px;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: auto;
+    overflow-x: scroll;
+}
+
+.movie-s {
+    min-width: 300px;
+    width: 18vw;
+    height: 180px;
+    background-size: cover;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+.movie-s:hover{
+    cursor:pointer;
 }

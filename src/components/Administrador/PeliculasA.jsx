@@ -35,7 +35,7 @@ function PeliculasA() {
 
     const handelClick = () => {
         document.getElementById("my_select").selectedIndex = 0;
-        setModalcr([true, nombre])
+
         createPeli()
 
 
@@ -68,7 +68,8 @@ function PeliculasA() {
         const resp = await fetch('http://localhost:5000/pelis', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
-
+        
+        setModalcr([true, nombre])
 
     }
 

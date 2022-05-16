@@ -137,3 +137,11 @@
     color: #E0E2DB;
     background-color: #101419;
 }
+
+.peliculas button:hover{
+    cursor:pointer;
+}
+
+.pelis-container:hover{
+    cursor:pointer;
+}

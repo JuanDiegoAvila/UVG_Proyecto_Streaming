@@ -70,3 +70,7 @@
     color: #E0E2DB;
     border-radius: 5px;
 }
+
+.modal-backdropC button:hover{
+    cursor:pointer;
+}

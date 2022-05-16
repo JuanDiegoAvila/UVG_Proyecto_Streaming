@@ -35,3 +35,7 @@
     border-radius: 10px;
     font-size: 18px;
 }
+
+.add-container button:hover{
+    cursor:pointer;
+}

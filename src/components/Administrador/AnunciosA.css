@@ -136,3 +136,10 @@
     color: #E0E2DB;
     background-color: #101419;
 }
+
+.anuncios-AN button:hover{
+    cursor: pointer;
+}
+.anuncio-containerAA:hover{
+    cursor: pointer;
+}

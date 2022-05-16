@@ -63,6 +63,7 @@
 
 .button-container button:hover{
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .modalm button img {
@@ -77,4 +78,8 @@
     border-radius: 10px;
     margin-bottom: 15px;
     margin-top: 15px;
+}
+
+.exitM:hover{
+    cursor: pointer;
 }

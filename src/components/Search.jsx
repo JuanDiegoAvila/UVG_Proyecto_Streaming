@@ -80,6 +80,7 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
                 {
                     checkers.map((c, index) => (
                         <div key = {index} className='param'>
+                          
                             <input type="checkbox" onChange={() => handleCheck(index)} checked = {checked[index]} />
                             <h3>{c}</h3>
                         </div>

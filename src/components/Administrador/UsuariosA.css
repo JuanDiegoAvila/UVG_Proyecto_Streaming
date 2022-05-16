@@ -133,3 +133,11 @@
     color: #E0E2DB;
     background-color: #101419;
 }
+
+.usuarios button:hover{
+    cursor: pointer;
+}
+
+.user-container:hover{
+    cursor: pointer;
+}

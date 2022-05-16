@@ -136,3 +136,11 @@
     color: #E0E2DB;
     background-color: #101419;
 }
+
+.actores-AN button:hover{
+    cursor: pointer;
+}
+
+.anuncio-containerACT:hover{
+    cursor:pointer;
+}

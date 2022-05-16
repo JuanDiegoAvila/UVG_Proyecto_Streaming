@@ -37,6 +37,7 @@
     margin-left: 20px;
     margin-right: 10px;
     align-self: flex-end;
+    cursor: pointer;
 }
 
 .exit{
@@ -73,5 +74,12 @@
     margin-left: 10px;
     justify-content: center;
     color: #E0E2DB;
-    
+}
+
+.sesion:hover{
+    cursor: pointer;
+}
+
+.Pmodal label{
+    cursor: pointer;
 }

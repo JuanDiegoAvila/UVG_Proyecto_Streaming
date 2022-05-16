@@ -188,3 +188,7 @@
     border-bottom: 0.01px solid #101419;
 
 }
+
+.reporte-container button:hover{
+    cursor: pointer;
+}

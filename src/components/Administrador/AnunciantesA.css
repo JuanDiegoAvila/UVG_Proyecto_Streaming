@@ -133,3 +133,11 @@
     color: #E0E2DB;
     background-color: #101419;
 }
+
+.anunciantes button:hover{
+    cursor:pointer;
+}
+
+.anunciante-containerA:hover{
+    cursor:pointer;
+}

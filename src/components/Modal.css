@@ -88,3 +88,7 @@
     align-items: flex-start;
     justify-content: center;
 }
+
+.profile-container button:hover{
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@ import './Body.css';
 
 import { useState, useEffect } from 'react'
 
-import ContentHome from './ContentHome'
+import ContentScroll from './ContentScroll'
 import Modal from './Modal'
 import ModalMovie from './ModalMovie'
 import ProfileModal from './ProfileModal'
@@ -88,10 +88,10 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
             {profileModal && <ProfileModal name={name} setProfileModal={setProfileModal} />}
             {movieview[0] && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} Perfil={perfil} boton={movieview[2]} anuncios={anuncios} setAnuncios={setAnuncios} />}
             {anuncios[0] && <Anuncios cantidad={anuncios[1]} setAnuncios={setAnuncios} />}
-            <ContentHome name={"Viendo"} movies={viendo} movieview={movieview} setMovieView={setMovieView} boton={true} />
-            <ContentHome name={"Sugerencias"} movies={sugerencias} boton={false} setMovieView={setMovieView} />
-            <ContentHome name={"Favoritos"} movies={favoritos} movieview={movieview} setMovieView={setMovieView} boton={false} />
-            <ContentHome name={"Visto"} movies={vistos} movieview={movieview} setMovieView={setMovieView} boton={false} />
+            <ContentScroll name={"Viendo"} movies={viendo} movieview={movieview} setMovieView={setMovieView} boton={true} />
+            <ContentScroll name={"Sugerencias"} movies={sugerencias} boton={false} setMovieView={setMovieView} />
+            <ContentScroll name={"Favoritos"} movies={favoritos} movieview={movieview} setMovieView={setMovieView} boton={false} />
+            <ContentScroll name={"Visto"} movies={vistos} movieview={movieview} setMovieView={setMovieView} boton={false} />
         </div>
     )
 }

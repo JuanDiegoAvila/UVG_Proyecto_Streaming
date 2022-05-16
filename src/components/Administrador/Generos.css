@@ -135,3 +135,11 @@
     color: #E0E2DB;
     background-color: #101419;
 }
+
+.generos-Ge button:hover{
+    cursor: pointer;
+}
+
+.generos-containerGe:hover{
+    cursor: pointer;
+}

@@ -26,6 +26,14 @@
     margin-top: 20px;
 }
 
+.search button:hover{
+    cursor:pointer;
+}
+
+.param input:hover{
+    cursor: pointer;
+}
+
 .filter{
     position: absolute;
     top: 0;
