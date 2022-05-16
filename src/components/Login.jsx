@@ -35,7 +35,6 @@ function Login() {
 
         const fet = 'http://localhost:5000/passcheck/' + correo + '/' + cont
 
-
         const log = await fetch(fet)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
