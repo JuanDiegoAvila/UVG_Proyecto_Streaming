@@ -9,6 +9,7 @@ import ModalAdmin from './ModalAdmin'
 export default function AnunciantesA() {
 
     let navigate = useNavigate()
+    const admon = window.localStorage.getItem('admin')
     let [anunciantes, setAnunciantes] = useState([])
 
     let [anuncian, setAnuncian] = useState('')
@@ -39,7 +40,8 @@ export default function AnunciantesA() {
     const createAnunciante = async () => {
 
         const json = {
-            anunciante: anuncian
+            anunciante: anuncian,
+            admin: admon
         }
 
         const options = {

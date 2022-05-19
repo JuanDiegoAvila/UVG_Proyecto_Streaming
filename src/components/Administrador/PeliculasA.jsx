@@ -6,8 +6,8 @@ import ModalCreate from './ModalCreate'
 
 function PeliculasA() {
 
-    let navigate = useNavigate();
-
+    const navigate = useNavigate();
+    const admon = window.localStorage.getItem('admin')
     const [peliculas, setPeliculas] = useState([])
     const [modalA, setModalA] = useState([false, null, 'peliculas_series'])
     const [modalCr, setModalcr] = useState([false, ''])
@@ -55,7 +55,8 @@ function PeliculasA() {
             fecha_estreno: fecha_estreno,
             duracion: duracion,
             link: link,
-            imagen: imagen
+            imagen: imagen,
+            admin: admon
         }
         console.log(json)
         const options = {

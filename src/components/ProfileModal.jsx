@@ -38,7 +38,7 @@ export default function ProfileModal({name, setProfileModal}) {
             console.log('cambio')
             window.localStorage.setItem('suscripcion', sub)
 
-            const fet = "http://localhost:5000/profile/"+idUsuario+"/"+sub+"/"+limit
+            const fet = "http://localhost:5000/profile/"+idUsuario+"/"+sub+"/"+limit+"/"+correo
 
             const response = await fetch(fet)
             .then((response) => {return response.json()}

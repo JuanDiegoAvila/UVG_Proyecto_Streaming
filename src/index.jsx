@@ -16,17 +16,15 @@ import ActoresA from './components/Administrador/ActoresA';
 import DirectoresA from './components/Administrador/Directores';
 import Premios from './components/Administrador/Premios';
 import Generos from './components/Administrador/Generos';
+import Administradores from './components/Administrador/Administradores';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { render } from "react-dom"
 
 render(
   <React.StrictMode>
-
     <BrowserRouter>
-
       <Routes>
-
         <Route path="/" element={<Login />} />
         <Route exact path='/Register' element={< Register />} />
         <Route exact path='/App' element={< App />} />
@@ -42,12 +40,9 @@ render(
         <Route exact path='/Directores' element={<DirectoresA />} />
         <Route exact path='/Premios' element={<Premios />} />
         <Route exact path='/Generos' element={<Generos />} />
-
-
+        <Route exact path='/Administradores' element={<Administradores />} />
       </Routes>
-
     </BrowserRouter>
-
   </React.StrictMode>,
   document.getElementById('root')
 );

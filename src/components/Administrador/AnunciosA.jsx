@@ -13,6 +13,7 @@ export default function AnunciosA() {
     const [contenido, setContenido] = useState('')
     const [link, setLink] = useState('')
     const [anunciante, setAnunciante] = useState('')
+    const admon = window.localStorage.getItem('admin')
 
     const [modalA, setModalA] = useState([false, null, 'usuarios'])
 
@@ -44,7 +45,8 @@ export default function AnunciosA() {
         const json = {
             anunciante: anunciante,
             contenido: contenido,
-            link: link
+            link: link,
+            admin: admon
         }
         console.log(json)
         const options = {

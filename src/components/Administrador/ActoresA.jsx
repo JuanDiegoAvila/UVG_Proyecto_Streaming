@@ -11,6 +11,7 @@ function ActoresA() {
     const [actores, setActores] = useState([])
     const [nombre, setNombre] = useState('')
     const [apellido, setApellido] = useState('')
+    const admon = window.localStorage.getItem('admin')
 
     const [modalA, setModalA] = useState([false, null, 'actor'])
 
@@ -45,7 +46,8 @@ function ActoresA() {
 
         const json = {
             nombre: n2,
-            apellido: p2
+            apellido: p2,
+            admin: admon
         }
 
         const options = {

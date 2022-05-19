@@ -62,9 +62,10 @@ function Login() {
             .then((responseInJSON) => { return responseInJSON })
         console.log(log.completado)
         setAdmin(log.completado)
-        window.localStorage.setItem('admin', correo)
 
         if (log.completado) {
+            console.log(log)
+            window.localStorage.setItem('admin', correo)
             navigate('/Administrador')
         }
     }

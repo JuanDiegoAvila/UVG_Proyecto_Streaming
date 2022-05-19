@@ -53,7 +53,8 @@ function Register() {
                 name:user,
                 pass:cont,
                 estado:false,
-                suscripcion:susbcription
+                suscripcion:susbcription,
+                admin: user
             }
     
             const options = {

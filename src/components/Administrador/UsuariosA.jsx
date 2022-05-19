@@ -7,6 +7,7 @@ function UsuariosA() {
     let navigate = useNavigate();
 
     const [usuarios, setUsuarios] = useState([])
+    const admon = window.localStorage.getItem('admin')
     const [modalA, setModalA] = useState([false, null, 'usuarios'])
     const [user, setUser] = useState("")
     const [correo, setCorreo] = useState("")
@@ -47,7 +48,8 @@ function UsuariosA() {
             name: user,
             pass: contra,
             estado: false,
-            suscripcion: suscripcion
+            suscripcion: suscripcion,
+            admin: admon
         }
         console.log(json)
         const options = {

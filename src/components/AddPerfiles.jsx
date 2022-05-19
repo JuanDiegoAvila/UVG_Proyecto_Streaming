@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom'
 function AddPerfiles(){
 
     const [idUsuario, setIdUsuario] = useState(window.localStorage.getItem('id-usuario'))
+    const correo = window.localStorage.getItem('correo')
     const [perfil, setPerfil] = useState("")
     let navigate = useNavigate();
 
@@ -12,7 +13,8 @@ function AddPerfiles(){
      
         const json = {
             id_usuario:idUsuario,
-            name:perfil
+            name:perfil,
+            admin:correo
         }
         const options = {
             method: 'POST',

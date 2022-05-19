@@ -18,10 +18,20 @@
 
 }
 
+.inicio-individual {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.inicio-individual button{
+    margin-right: 40px;
+}
+
 .inicio-container button {
 
     background: linear-gradient(to top, #476C9B, #1C324F);
-    height: 35px;
+    height: 45px;
     width: 60vh;
     color: #E0E2DB;
     border-radius: 10px;

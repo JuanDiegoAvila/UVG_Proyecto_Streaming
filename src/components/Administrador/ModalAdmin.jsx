@@ -7,6 +7,7 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
 
     const [campo, setCampo] = useState('')
     const [value, setValue] = useState('')
+    const admon = window.localStorage.getItem('admin')
 
     let total = Object.keys(objectU)
     let llaves = [...total]
@@ -27,7 +28,8 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
         const json = {
             valor: campo,
             estado: value,
-            tabla: tabla
+            tabla: tabla,
+            admin: admon
         }
         console.log(json)
         const options = {
