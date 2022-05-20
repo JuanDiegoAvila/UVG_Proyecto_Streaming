@@ -17,6 +17,7 @@ import DirectoresA from './components/Administrador/Directores';
 import Premios from './components/Administrador/Premios';
 import Generos from './components/Administrador/Generos';
 import Administradores from './components/Administrador/Administradores';
+import Simulacion from './components/Administrador/Simulacion';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { render } from "react-dom"
@@ -41,6 +42,7 @@ render(
         <Route exact path='/Premios' element={<Premios />} />
         <Route exact path='/Generos' element={<Generos />} />
         <Route exact path='/Administradores' element={<Administradores />} />
+        <Route exact path='/Simulacion' element={<Simulacion />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .nav-bar-reporte button {
@@ -191,4 +192,98 @@
 
 .reporte-container button:hover{
     cursor: pointer;
+}
+
+
+.generos-column-container3 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50px;
+    width: 100%;
+    height: 50px;
+
+    border-bottom: 1px solid #101419;
+
+}
+
+.generos-container3 {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50px;
+    width: 100%;
+    height: 50px;
+
+    border-bottom: 0.01px solid #101419;
+
+}
+
+
+.fecha-container2 {
+    display: grid;
+    align-self: center;
+    justify-content: center;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50px;
+    width: 100%;
+    height: 50px;
+}
+
+.fecha-container2 input {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+
+    color: #E0E2DB;
+    background-color: #101419;
+}
+
+.fecha-container2 select {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+
+    color: #E0E2DB;
+    background-color: #101419;
+}
+
+.fecha-container2 button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: auto;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    color: #E0E2DB;
+    background-color: #101419;
+}
+
+.fecha-container3 {
+    display: grid;
+    align-self: center;
+    justify-content: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px;
+    width: 100%;
+    height: 50px;
+}
+
+.fecha-container3 button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: auto;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    color: #E0E2DB;
+    background-color: #101419;
 }

@@ -29,7 +29,10 @@ function Inicio() {
                     <button onClick={() => { navigate('/Reportes') }}>Reportes</button>
                     <button onClick={() => { navigate('/Administradores') }}>Administradores</button>
                 </div>
-                <button onClick={() => { navigate('/') }}>Regresar</button>
+                <div className="inicio-individual">
+                    <button onClick={() => { navigate('/Simulacion') }}>Simulacion</button>
+                    <button onClick={() => { navigate('/') }}>Regresar</button>
+                </div>
             </div>
         </div>
     )

@@ -41,7 +41,8 @@ export default function AnunciantesA() {
 
         const json = {
             anunciante: anuncian,
-            admin: admon
+            admin: admon,
+            boolean: true
         }
 
         const options = {

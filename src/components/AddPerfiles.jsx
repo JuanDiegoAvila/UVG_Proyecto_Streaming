@@ -14,7 +14,8 @@ function AddPerfiles(){
         const json = {
             id_usuario:idUsuario,
             name:perfil,
-            admin:correo
+            admin:correo,
+            boolean: false
         }
         const options = {
             method: 'POST',

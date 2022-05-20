@@ -15,7 +15,7 @@ export default function AnunciosA() {
     const [anunciante, setAnunciante] = useState('')
     const admon = window.localStorage.getItem('admin')
 
-    const [modalA, setModalA] = useState([false, null, 'usuarios'])
+    const [modalA, setModalA] = useState([false, null, 'anuncio'])
 
     const refreshAnuncios = async () => {
         const fet = 'http://localhost:5000/anuncio'
@@ -46,7 +46,8 @@ export default function AnunciosA() {
             anunciante: anunciante,
             contenido: contenido,
             link: link,
-            admin: admon
+            admin: admon,
+            boolean: true
         }
         console.log(json)
         const options = {
@@ -85,7 +86,7 @@ export default function AnunciosA() {
                     {
                         anuncios.map((anuncio, index) => {
                             return (
-                                <div className="anuncio-containerAA" key={index} onClick={() => { setModalA([true, anuncio, 'anuncios']) }}>
+                                <div className="anuncio-containerAA" key={index} onClick={() => { setModalA([true, anuncio, 'anuncio']) }}>
                                     <div className="anuncioA" >{anuncio.id_anunciante}</div>
                                     <div className="anuncioA" >{anuncio.contenido}</div>
                                     <div className="anuncioA" style={{ justifyContent: "start" }}>{anuncio.link}</div>

@@ -24,23 +24,31 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
     const handleSearch = async() => {
         
         let mov = []
+
+        const json = {
+            contenido: title.toLowerCase()
+        }
+        console.log(json)
+        const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(json)
+        }
+        const resp = await fetch('http://localhost:5000/search', options)
+            .then((response) => { return response.json() })
+            .then((responseInJSON) => { return responseInJSON })
         
         for(let c in checked){
-
             if(!checked[c]){
                 continue   
             }
-            
             let fet = "http://localhost:5000/pelis/"+content[c]+(title.toLowerCase())
-
-
             const response = await fetch(fet)
             .then((response) => {return response.json()}
             ).then((responseInJSON) => { return responseInJSON })
-
             mov = [...mov, ...response]
-             
-
         }
 
 

@@ -18,10 +18,9 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
         llaves.splice(0, 1)
     }
 
-    const ident = (tabla === 'usuarios') || (tabla === 'anunciantes') || (tabla === 'directores') || (tabla === 'premios') || (tabla === 'actor') ? objectU.id : (tabla === 'anuncios') ? objectU.contenido : (tabla === 'generos') ? objectU.id_genero : objectU.codigo
+    const ident = (tabla === 'usuarios') || (tabla === 'anunciantes') || (tabla === 'directores') || (tabla === 'premios') || (tabla === 'actor') ? objectU.id : (tabla === 'anuncio') ? objectU.contenido : (tabla === 'generos') ? objectU.id_genero : objectU.codigo
 
     let navigate = useNavigate();
-
 
     const updateObject = async () => {
 
@@ -29,7 +28,8 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
             valor: campo,
             estado: value,
             tabla: tabla,
-            admin: admon
+            admin: admon,
+            boolean: true
         }
         console.log(json)
         const options = {
@@ -51,7 +51,8 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
     const deleteObject = async () => {
 
         const json = {
-            tabla: tabla
+            tabla: tabla,
+            admin: admon
         }
         console.log(json)
         const options = {
@@ -68,7 +69,6 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
             .then((responseInJSON) => { return responseInJSON })
 
         window.location.reload()
-
     }
 
     return ReactDOM.createPortal((

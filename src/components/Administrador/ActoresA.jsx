@@ -47,7 +47,8 @@ function ActoresA() {
         const json = {
             nombre: n2,
             apellido: p2,
-            admin: admon
+            admin: admon,
+            boolean: true
         }
 
         const options = {

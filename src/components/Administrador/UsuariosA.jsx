@@ -49,7 +49,8 @@ function UsuariosA() {
             pass: contra,
             estado: false,
             suscripcion: suscripcion,
-            admin: admon
+            admin: admon,
+            boolean: true
         }
         console.log(json)
         const options = {

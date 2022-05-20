@@ -56,7 +56,8 @@ function PeliculasA() {
             duracion: duracion,
             link: link,
             imagen: imagen,
-            admin: admon
+            admin: admon,
+            boolean: true
         }
         console.log(json)
         const options = {
