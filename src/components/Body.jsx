@@ -30,7 +30,7 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
 
 
     const getMovies = async () => {
-        let fet = "http://localhost:5000/pelis"
+        let fet = "http://3.132.195.25/streaming/pelis"
 
         const response = await fetch(fet)
             .then((response) => { return response.json() }
@@ -42,7 +42,7 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
 
     useEffect(async () => {
         console.log(idperfil)
-        let fet1 = "http://localhost:5000/visto/" + idperfil
+        let fet1 = "http://3.132.195.25/streaming/visto/" + idperfil
 
         const responseV = await fetch(fet1)
             .then((response) => { return response.json() }
@@ -52,7 +52,7 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
         const viS = [...new Map(responseV.map(item => [item.codigo, item])).values()]
         setVistos([...viS])
 
-        let fet2 = "http://localhost:5000/viendo/" + idperfil
+        let fet2 = "http://3.132.195.25/streaming/viendo/" + idperfil
 
         const responseVd = await fetch(fet2)
             .then((response) => { return response.json() }
@@ -62,7 +62,7 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
 
         setViendo([...viN])
 
-        let fet3 = "http://localhost:5000/fav/" + idperfil
+        let fet3 = "http://3.132.195.25/streaming/fav/" + idperfil
 
         const responseF = await fetch(fet3)
             .then((response) => { return response.json() }
@@ -70,7 +70,7 @@ export default function Body({ name, modal, setModal, movieview, setMovieView, p
 
         setFavoritos([...responseF])
 
-        let fet4 = "http://localhost:5000/recom/" + idperfil
+        let fet4 = "http://3.132.195.25/streaming/recom/" + idperfil
 
         const responseR = await fetch(fet4)
             .then((response) => { return response.json() }

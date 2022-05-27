@@ -15,7 +15,7 @@ export default function Generos() {
     const [modalA, setModalA] = useState([false, null, 'generos'])
 
     const refreshGeneros = async () => {
-        const fet = 'http://localhost:5000/generos'
+        const fet = 'http://3.132.195.25/streaming/generos'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -53,7 +53,7 @@ export default function Generos() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/generos', options)
+        const resp = await fetch('http://3.132.195.25/streaming/generos', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         refreshGeneros();

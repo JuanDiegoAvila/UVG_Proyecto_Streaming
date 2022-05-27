@@ -16,7 +16,7 @@ export default function Modal({ name, setModal }) {
     useEffect(async () => {
 
 
-        const fet = "http://localhost:5000/perfil/" + correo
+        const fet = "http://3.132.195.25/streaming/perfil/" + correo
 
         const response = await fetch(fet)
             .then((response) => { return response.json() }
@@ -46,14 +46,14 @@ export default function Modal({ name, setModal }) {
 
     const handlePerfil = async (id) => {
         console.log(id)
-        const fet = "http://localhost:5000/viendo/" + id + "/" + true
+        const fet = "http://3.132.195.25/streaming/viendo/" + id + "/" + true
 
         const response = await fetch(fet)
             .then((response) => { return response.json() }
             ).then((responseInJSON) => { return responseInJSON })
 
 
-        const fet2 = "http://localhost:5000/viendo/" + idPerfil + "/" + false
+        const fet2 = "http://3.132.195.25/streaming/viendo/" + idPerfil + "/" + false
 
         const response1 = await fetch(fet2)
             .then((response) => { return response.json() }
@@ -77,7 +77,7 @@ export default function Modal({ name, setModal }) {
     }
 
     const cerrarSesion = async () => {
-        const fet2 = "http://localhost:5000/viendo/" + idPerfil + "/" + false
+        const fet2 = "http://3.132.195.25/streaming/viendo/" + idPerfil + "/" + false
 
         const response1 = await fetch(fet2)
             .then((response) => { return response.json() }

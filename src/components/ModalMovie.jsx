@@ -31,7 +31,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/viendo/' + idperfil, options)
+        const resp = await fetch('http://3.132.195.25/streaming/viendo/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         console.log('lo vio')
@@ -75,7 +75,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/visto/' + idperfil, options)
+        const resp = await fetch('http://3.132.195.25/streaming/visto/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -100,7 +100,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/fav/' + idperfil, options)
+        const resp = await fetch('http://3.132.195.25/streaming/fav/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         console.log(resp.status)

@@ -10,7 +10,7 @@ const Administradores = () => {
   const [contra, setContra] = useState("")
 
   const refreshAdmin = async () => {
-    const fet = 'http://localhost:5000/admin'
+    const fet = 'http://3.132.195.25/streaming/admin'
     const log = await fetch(fet)
       .then((response) => { return response.json() })
       .then((responseInJSON) => { return responseInJSON })
@@ -40,7 +40,7 @@ const Administradores = () => {
       },
       body: JSON.stringify(json)
     }
-    const resp = await fetch('http://localhost:5000/admin', options)
+    const resp = await fetch('http://3.132.195.25/streaming/admin', options)
       .then((response) => { return response.json() })
       .then((responseInJSON) => { return responseInJSON })
     window.location.reload();

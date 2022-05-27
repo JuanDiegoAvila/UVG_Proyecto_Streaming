@@ -37,7 +37,7 @@ export default function ModalCreate({ nombre, setModalcr }) {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/relgeneros', options)
+        const resp = await fetch('http://3.132.195.25/streaming/relgeneros', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
     }
@@ -59,7 +59,7 @@ export default function ModalCreate({ nombre, setModalcr }) {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/relactores', options)
+        const resp = await fetch('http://3.132.195.25/streaming/relactores', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
     }
@@ -78,7 +78,7 @@ export default function ModalCreate({ nombre, setModalcr }) {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/relpremio', options)
+        const resp = await fetch('http://3.132.195.25/streaming/relpremio', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
     }
@@ -97,14 +97,14 @@ export default function ModalCreate({ nombre, setModalcr }) {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/reldirector', options)
+        const resp = await fetch('http://3.132.195.25/streaming/reldirector', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
     }
 
 
     const refreshTablas = async () => {
-        const fet = 'http://localhost:5000/actores'
+        const fet = 'http://3.132.195.25/streaming/actores'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -112,7 +112,7 @@ export default function ModalCreate({ nombre, setModalcr }) {
 
         setActores([...log])
 
-        const fet2 = 'http://localhost:5000/director'
+        const fet2 = 'http://3.132.195.25/streaming/director'
 
         const log2 = await fetch(fet2)
             .then((response) => { return response.json() })
@@ -120,7 +120,7 @@ export default function ModalCreate({ nombre, setModalcr }) {
 
         setDirectores([...log2])
 
-        const fet3 = 'http://localhost:5000/generos'
+        const fet3 = 'http://3.132.195.25/streaming/generos'
 
         const log3 = await fetch(fet3)
             .then((response) => { return response.json() })
@@ -128,7 +128,7 @@ export default function ModalCreate({ nombre, setModalcr }) {
 
         setCategorias([...log3])
 
-        const fet4 = 'http://localhost:5000/premio'
+        const fet4 = 'http://3.132.195.25/streaming/premio'
 
         const log4 = await fetch(fet4)
             .then((response) => { return response.json() })
@@ -142,7 +142,7 @@ export default function ModalCreate({ nombre, setModalcr }) {
     const getId = async () => {
 
 
-        const fet = 'http://localhost:5000/pelis/nombre/' + nombre
+        const fet = 'http://3.132.195.25/streaming/pelis/nombre/' + nombre
         const log = await fetch(fet)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })

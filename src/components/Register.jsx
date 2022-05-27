@@ -65,7 +65,7 @@ function Register() {
                 },
                 body: JSON.stringify(json)
             }
-            const resp = await fetch('http://localhost:5000/users', options)
+            const resp = await fetch('http://3.132.195.25/streaming/users', options)
             .then((response) => {return response.json()})
             .then((responseInJSON) => { return responseInJSON })
             console.log(resp.status)

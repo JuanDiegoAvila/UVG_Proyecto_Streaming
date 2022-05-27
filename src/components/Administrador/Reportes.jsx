@@ -35,7 +35,7 @@ function Reportes() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/reporte/1', options)
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/1', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -56,7 +56,7 @@ function Reportes() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/reporte/2', options)
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/2', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -67,7 +67,7 @@ function Reportes() {
     const updateDirectores = async () => {
 
 
-        const resp = await fetch('http://localhost:5000/reporte/3/director')
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/3/director')
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -78,7 +78,7 @@ function Reportes() {
 
     const updateActores = async () => {
 
-        const resp = await fetch('http://localhost:5000/reporte/3/actor')
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/3/actor')
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -89,7 +89,7 @@ function Reportes() {
 
     const updateCuentas = async () => {
 
-        const resp = await fetch('http://localhost:5000/reporte/4')
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/4')
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -108,7 +108,7 @@ function Reportes() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/reporte/5', options)
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/5', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -128,7 +128,7 @@ function Reportes() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/reporte/6', options)
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/6', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -137,7 +137,7 @@ function Reportes() {
     }
 
     const updateTerminos = async () => {
-        const resp = await fetch('http://localhost:5000/reporte/7')
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/7')
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
@@ -157,7 +157,7 @@ function Reportes() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/reporte/8', options)
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/8', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         console.log(resp)
@@ -178,7 +178,7 @@ function Reportes() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/reporte/9', options)
+        const resp = await fetch('http://3.132.195.25/streaming/reporte/9', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         console.log(resp)
@@ -492,10 +492,10 @@ function Reportes() {
                                 contenido.map((p, index) => {
                                     return (
                                         <div className='generos-container3' key={index}>
-                                            <div className='genero-l'>{index + 1}</div>
-                                            <div className='genero-l'>{p.hora}</div>
-                                            <div className='genero-l'>{p.nombre}</div>
-                                            <div className='genero-l'>{p.count}</div>
+                                            <div className='genero-l'>{((index) % 5) + 1}</div>
+                                            <div className='genero-l'>{p.horatop5}</div>
+                                            <div className='genero-l'>{p.nombrepeli}</div>
+                                            <div className='genero-l'>{p.contador}</div>
                                         </div>
                                     )
                                 })

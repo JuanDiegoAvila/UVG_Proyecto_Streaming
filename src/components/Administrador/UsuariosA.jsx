@@ -15,7 +15,7 @@ function UsuariosA() {
     const [suscripcion, setSuscripcion] = useState("")
 
     const refreshUsers = async () => {
-        const fet = 'http://localhost:5000/users'
+        const fet = 'http://3.132.195.25/streaming/users'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -60,7 +60,7 @@ function UsuariosA() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/users', options)
+        const resp = await fetch('http://3.132.195.25/streaming/users', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 

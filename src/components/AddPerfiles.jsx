@@ -24,7 +24,7 @@ function AddPerfiles(){
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/profile', options)
+        const resp = await fetch('http://3.132.195.25/streaming/profile', options)
         .then((response) => {return response.json()})
         .then((responseInJSON) => { return responseInJSON })
 

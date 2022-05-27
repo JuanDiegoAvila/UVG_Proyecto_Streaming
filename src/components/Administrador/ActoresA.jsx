@@ -16,7 +16,7 @@ function ActoresA() {
     const [modalA, setModalA] = useState([false, null, 'actor'])
 
     const refreshAnuncios = async () => {
-        const fet = 'http://localhost:5000/actores'
+        const fet = 'http://3.132.195.25/streaming/actores'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -58,7 +58,7 @@ function ActoresA() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/actores', options)
+        const resp = await fetch('http://3.132.195.25/streaming/actores', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 

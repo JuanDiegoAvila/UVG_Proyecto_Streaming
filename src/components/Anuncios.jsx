@@ -10,7 +10,7 @@ function Anuncios({cantidad, setAnuncios}){
 
     useEffect(async () => {
 
-        const resp = await fetch('http://localhost:5000/anuncios')
+        const resp = await fetch('http://3.132.195.25/streaming/anuncios')
         .then((response) => {return response.json()})
         .then((responseInJSON) => { return responseInJSON })
 
@@ -31,7 +31,7 @@ function Anuncios({cantidad, setAnuncios}){
                 body:JSON.stringify(json)
             }
 
-            const resp = await fetch ('http://localhost:5000/adseen', options)
+            const resp = await fetch ('http://3.132.195.25/streaming/adseen', options)
             .then((response) => {return response.json()}
             ).then((responseInJSON) => { return responseInJSON })
     }

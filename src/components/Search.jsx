@@ -36,7 +36,7 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
         },
         body: JSON.stringify(json)
         }
-        const resp = await fetch('http://localhost:5000/search', options)
+        const resp = await fetch('http://3.132.195.25/streaming/search', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         
@@ -44,7 +44,7 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
             if(!checked[c]){
                 continue   
             }
-            let fet = "http://localhost:5000/pelis/"+content[c]+(title.toLowerCase())
+            let fet = "http://3.132.195.25/streaming/pelis/"+content[c]+(title.toLowerCase())
             const response = await fetch(fet)
             .then((response) => {return response.json()}
             ).then((responseInJSON) => { return responseInJSON })
