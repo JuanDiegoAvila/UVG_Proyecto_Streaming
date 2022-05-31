@@ -33,7 +33,7 @@ function Login() {
 
     const logIn = async () => {
 
-        const fet = 'http://3.132.195.25/streaming/passcheck/' + correo + '/' + cont
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/passcheck/' + correo + '/' + cont
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -41,7 +41,7 @@ function Login() {
         console.log(log.ban)
         setBan(log.ban)
 
-        const fet2 = 'http://3.132.195.25/streaming/usersC/' + correo
+        const fet2 = 'https://apistreaming.juanangelcarrera.xyz/streaming/usersC/' + correo
         const log2 = await fetch(fet2)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
@@ -54,7 +54,7 @@ function Login() {
 
     const Admin = async () => {
 
-        const fet = 'http://3.132.195.25/streaming/admin/' + correo + '/' + cont
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/admin/' + correo + '/' + cont
 
 
         const log = await fetch(fet)

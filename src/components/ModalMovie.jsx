@@ -11,7 +11,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
 
     const [idperfil, setIdperfil] = useState(window.localStorage.getItem('id-perfil'))
     const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
-    
+
     let navigate = useNavigate();
 
     const SeeMovie = async (codigo) => {
@@ -21,7 +21,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
         console.log('Se agrego a vista')
         const json = {
             idmovie: codigo,
-            sus:suscripcion
+            sus: suscripcion
         }
 
         const options = {
@@ -31,7 +31,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/viendo/' + idperfil, options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/viendo/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         console.log('lo vio')
@@ -65,7 +65,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
         console.log('Se agrego a vista')
         const json = {
             idmovie: codigo,
-            sus:suscripcion
+            sus: suscripcion
         }
 
         const options = {
@@ -75,12 +75,11 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/visto/' + idperfil, options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/visto/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 
-        if(suscripcion!='Gratis')
-        {
+        if (suscripcion != 'Gratis') {
             window.location.reload()
         }
     }
@@ -90,7 +89,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
         console.log('Se agrego a favoritos')
         const json = {
             idmovie: codigo,
-            sus:suscripcion
+            sus: suscripcion
         }
 
         const options = {
@@ -100,7 +99,7 @@ export default function ModalMovie({ movie, setMovieView, boton, anuncios, setAn
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/fav/' + idperfil, options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/fav/' + idperfil, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         console.log(resp.status)

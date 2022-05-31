@@ -2,7 +2,7 @@ import './Simulacion.css'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-const Simulacion = () =>{
+const Simulacion = () => {
 
   let navigate = useNavigate()
   const [fecha, setFecha] = useState('')
@@ -14,7 +14,7 @@ const Simulacion = () =>{
     setCantidad('')
   }
 
-  const runSimulacion = async() => {
+  const runSimulacion = async () => {
     const json = {
       fecha: fecha,
       cantidad: cantidad
@@ -27,12 +27,12 @@ const Simulacion = () =>{
       },
       body: JSON.stringify(json)
     }
-    const resp = await fetch('http://3.132.195.25/streaming/simulacion', options)
+    const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/simulacion', options)
       .then((response) => { return response.json() })
       .then((responseInJSON) => { return responseInJSON })
   }
 
-  return(
+  return (
     <div className='simulacion-container'>
       <button id={"transparent-backRE"} onClick={() => navigate('/Administrador')} className="backRE"><img src='/img/arrow.png' /></button>
       <div className='opciones-container'>

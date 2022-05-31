@@ -19,7 +19,7 @@ export default function AnunciantesA() {
 
 
     const refreshAnunciantes = async () => {
-        const fet = 'http://3.132.195.25/streaming/anunciante'
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/anunciante'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -52,7 +52,7 @@ export default function AnunciantesA() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/anunciante', options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/anunciante', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
 

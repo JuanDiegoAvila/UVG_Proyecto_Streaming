@@ -1,20 +1,20 @@
 import './ProfileModal.css'
 import ReactDOM from 'react-dom'
-import {useEffect, useState} from "react"
-import {useNavigate} from 'react-router-dom'
+import { useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 
-export default function ProfileModal({name, setProfileModal}) {
-    
-    const subtype=["Gratis","Estandar","Avanzada"]
-    const checked = [false,false,false]
+export default function ProfileModal({ name, setProfileModal }) {
+
+    const subtype = ["Gratis", "Estandar", "Avanzada"]
+    const checked = [false, false, false]
     const [correo, setCorreo] = useState(window.localStorage.getItem('correo'))
     const [idUsuario, setIdUsuario] = useState(window.localStorage.getItem('id-usuario'))
     const [limit, setLimit] = useState(0)
     const [suscripcion, setSuscripcion] = useState(window.localStorage.getItem('suscripcion'))
     const [sub, setSub] = useState(suscripcion)
-    const [sms,setSms] = useState('')
+    const [sms, setSms] = useState('')
     let navigate = useNavigate();
-    
+
     useEffect(() => {
         switch (sub) {
             case "Gratis":
@@ -31,26 +31,25 @@ export default function ProfileModal({name, setProfileModal}) {
         }
     }, [sub])
 
-    
-    
-    const update = async() => {
-        if(sub != suscripcion){
+
+
+    const update = async () => {
+        if (sub != suscripcion) {
             console.log('cambio')
             window.localStorage.setItem('suscripcion', sub)
 
-            const fet = "http://3.132.195.25/streaming/profile/"+idUsuario+"/"+sub+"/"+limit+"/"+correo+"/"+false
+            const fet = "https://apistreaming.juanangelcarrera.xyz/streaming/profile/" + idUsuario + "/" + sub + "/" + limit + "/" + correo + "/" + false
 
             const response = await fetch(fet)
-            .then((response) => {return response.json()}
-            ).then((responseInJSON) => { return responseInJSON })
+                .then((response) => { return response.json() }
+                ).then((responseInJSON) => { return responseInJSON })
 
 
             setSms("")
             setProfileModal(false)
             window.location.reload()
         }
-        else
-        {
+        else {
             setSms("Esa es la suscripcion actual")
         }
     }
@@ -58,43 +57,42 @@ export default function ProfileModal({name, setProfileModal}) {
     return ReactDOM.createPortal((
         <div className="Pmodal-backdrop">
             <div className="Pmodal" style={{
-                border: "1px solid", 
+                border: "1px solid",
                 textAlign: "center"
-            } 
+            }
             }>
-                <button id= {"transparent-exit"} onClick={() => setProfileModal(false)} className="exit"><img src='/img/exit.png'/></button>
+                <button id={"transparent-exit"} onClick={() => setProfileModal(false)} className="exit"><img src='/img/exit.png' /></button>
                 <h2>{name}</h2>
-                
-                <div className="subscriptionPerfil" onChange={(radio)=>setSub(radio.target.value)}>
-                        
-                    {subtype.map((radio,index) => 
-                        {
-                            if(suscripcion === radio){
-                                return (
+
+                <div className="subscriptionPerfil" onChange={(radio) => setSub(radio.target.value)}>
+
+                    {subtype.map((radio, index) => {
+                        if (suscripcion === radio) {
+                            return (
                                 <div className="radioPerfil" key={index}>
-                                    <input type="radio" name='sub2' value={radio} id={radio}  defaultChecked />
-                                    <label htmlFor ={radio}>{radio}</label>
+                                    <input type="radio" name='sub2' value={radio} id={radio} defaultChecked />
+                                    <label htmlFor={radio}>{radio}</label>
                                 </div>)
-                            }
-                            else{
-                                return (
+                        }
+                        else {
+                            return (
                                 <div className="radioPerfil" key={index}>
                                     <input type="radio" name='sub2' value={radio} id={radio} />
-                                    <label htmlFor ={radio}>{radio}</label>
+                                    <label htmlFor={radio}>{radio}</label>
                                 </div>
-                                )
-                            }
+                            )
                         }
-                        
+                    }
+
                     )}
                 </div>
                 <div className='smsPM'>{sms}</div>
                 <div className='sesion-container'>
-                    <button className='sesion' onClick = { () => { update()}}>Guardar
+                    <button className='sesion' onClick={() => { update() }}>Guardar
                     </button>
                 </div>
-            </div>  
+            </div>
         </div>
-        
+
     ), document.body)
 }

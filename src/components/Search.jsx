@@ -1,28 +1,28 @@
 import './Search.css';
 
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 import Modal from './Modal'
 import ProfileModal from './ProfileModal'
 import ModalMovie from './ModalMovie'
 import ContentHome from './ContentHome';
 
-export default function Search({name, modal, setModal,movieview,setMovieView, profileModal, setProfileModal,anuncios, setAnuncios}){
+export default function Search({ name, modal, setModal, movieview, setMovieView, profileModal, setProfileModal, anuncios, setAnuncios }) {
 
     const [title, setTitle] = useState('')
-    const [checked, setChecked] = useState([false,false,false,false,false,false,true])
+    const [checked, setChecked] = useState([false, false, false, false, false, false, true])
     const [movies, setMovies] = useState([])
-    const content = ["premio/","actor/","genero/","directores/","categoria/","fecha/","nombre/"]
-    const checkers = ["Premios","Actor","Género","Director","Categoría", "Fecha de estreno", "Pelicula/Serie"]
-    
+    const content = ["premio/", "actor/", "genero/", "directores/", "categoria/", "fecha/", "nombre/"]
+    const checkers = ["Premios", "Actor", "Género", "Director", "Categoría", "Fecha de estreno", "Pelicula/Serie"]
+
     const handleCheck = (index) => {
         const oldState = [...checked]
         oldState[index] = !oldState[index]
         setChecked(oldState)
     }
 
-    const handleSearch = async() => {
-        
+    const handleSearch = async () => {
+
         let mov = []
 
         const json = {
@@ -30,24 +30,24 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
         }
         console.log(json)
         const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(json)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/search', options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/search', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
-        
-        for(let c in checked){
-            if(!checked[c]){
-                continue   
+
+        for (let c in checked) {
+            if (!checked[c]) {
+                continue
             }
-            let fet = "http://3.132.195.25/streaming/pelis/"+content[c]+(title.toLowerCase())
+            let fet = "https://apistreaming.juanangelcarrera.xyz/streaming/pelis/" + content[c] + (title.toLowerCase())
             const response = await fetch(fet)
-            .then((response) => {return response.json()}
-            ).then((responseInJSON) => { return responseInJSON })
+                .then((response) => { return response.json() }
+                ).then((responseInJSON) => { return responseInJSON })
             mov = [...mov, ...response]
         }
 
@@ -57,7 +57,7 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
 
         resetForm()
     }
-    
+
     const handleClick = () => {
 
         handleSearch()
@@ -66,19 +66,19 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
 
     const resetForm = () => {
         setTitle('')
-        setChecked([false,false,false,false,false,false,true])
+        setChecked([false, false, false, false, false, false, true])
     }
 
     return (
         <div className="body">
-            {modal  && <Modal name={name} setModal={setModal}/>}
-            {profileModal  && <ProfileModal name={name} setProfileModal={setProfileModal}/>}
-            {movieview[0]  && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} anuncios={anuncios} setAnuncios={setAnuncios}/>}
-            
+            {modal && <Modal name={name} setModal={setModal} />}
+            {profileModal && <ProfileModal name={name} setProfileModal={setProfileModal} />}
+            {movieview[0] && <ModalMovie movie={movieview[1]} setMovieView={setMovieView} anuncios={anuncios} setAnuncios={setAnuncios} />}
+
             <label className='search'>
-                <input 
-                    type="text" 
-                    onChange={(e) => setTitle(e.target.value)} 
+                <input
+                    type="text"
+                    onChange={(e) => setTitle(e.target.value)}
                     value={title}
                 />
                 <button onClick={() => handleClick()}>Buscar</button>
@@ -87,16 +87,16 @@ export default function Search({name, modal, setModal,movieview,setMovieView, pr
             <label className='parameters'>
                 {
                     checkers.map((c, index) => (
-                        <div key = {index} className='param'>
-                          
-                            <input type="checkbox" onChange={() => handleCheck(index)} checked = {checked[index]} />
+                        <div key={index} className='param'>
+
+                            <input type="checkbox" onChange={() => handleCheck(index)} checked={checked[index]} />
                             <h3>{c}</h3>
                         </div>
                     ))
-                }        
+                }
             </label>
 
-            <ContentHome name={"Resultados..."} movies = {movies} movieview={movieview} setMovieView={setMovieView}/>
+            <ContentHome name={"Resultados..."} movies={movies} movieview={movieview} setMovieView={setMovieView} />
         </div>
     )
 }

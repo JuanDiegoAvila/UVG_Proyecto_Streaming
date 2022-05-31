@@ -10,7 +10,7 @@ const Administradores = () => {
   const [contra, setContra] = useState("")
 
   const refreshAdmin = async () => {
-    const fet = 'http://3.132.195.25/streaming/admin'
+    const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/admin'
     const log = await fetch(fet)
       .then((response) => { return response.json() })
       .then((responseInJSON) => { return responseInJSON })
@@ -36,11 +36,11 @@ const Administradores = () => {
     const options = {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(json)
     }
-    const resp = await fetch('http://3.132.195.25/streaming/admin', options)
+    const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/admin', options)
       .then((response) => { return response.json() })
       .then((responseInJSON) => { return responseInJSON })
     window.location.reload();
@@ -51,7 +51,7 @@ const Administradores = () => {
       <button id={"transparent-backU"} onClick={() => navigate('/Administrador')} className="backU"><img src='/img/arrow.png' /></button>
       <div className="contA">
         <div className="column-container">
-            <div className="adminB" >Nombre</div>
+          <div className="adminB" >Nombre</div>
         </div>
         <div style={{ overflowY: "scroll", scrollbarWidth: "none", msOverflowStyle: "none" }}>
           {

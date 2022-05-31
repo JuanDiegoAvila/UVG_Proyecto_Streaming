@@ -15,7 +15,7 @@ function Premios() {
     const [modalA, setModalA] = useState([false, null, 'premios'])
 
     const refreshPremios = async () => {
-        const fet = 'http://3.132.195.25/streaming/premio'
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/premio'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -51,7 +51,7 @@ function Premios() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/premio', options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/premio', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         window.location.reload()

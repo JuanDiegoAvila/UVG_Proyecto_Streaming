@@ -18,7 +18,7 @@ export default function AnunciosA() {
     const [modalA, setModalA] = useState([false, null, 'anuncio'])
 
     const refreshAnuncios = async () => {
-        const fet = 'http://3.132.195.25/streaming/anuncio'
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/anuncio'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -57,7 +57,7 @@ export default function AnunciosA() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/anuncio', options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/anuncio', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
         console.log(resp)

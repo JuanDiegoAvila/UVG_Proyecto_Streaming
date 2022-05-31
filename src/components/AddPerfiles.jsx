@@ -1,8 +1,8 @@
 import './AddPerfiles.css'
-import {useEffect, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function AddPerfiles(){
+function AddPerfiles() {
 
     const [idUsuario, setIdUsuario] = useState(window.localStorage.getItem('id-usuario'))
     const correo = window.localStorage.getItem('correo')
@@ -10,11 +10,11 @@ function AddPerfiles(){
     let navigate = useNavigate();
 
     const createP = async () => {
-     
+
         const json = {
-            id_usuario:idUsuario,
-            name:perfil,
-            admin:correo,
+            id_usuario: idUsuario,
+            name: perfil,
+            admin: correo,
             boolean: false
         }
         const options = {
@@ -24,9 +24,9 @@ function AddPerfiles(){
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/profile', options)
-        .then((response) => {return response.json()})
-        .then((responseInJSON) => { return responseInJSON })
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/profile', options)
+            .then((response) => { return response.json() })
+            .then((responseInJSON) => { return responseInJSON })
 
         resetForm();
     }
@@ -36,16 +36,16 @@ function AddPerfiles(){
         setPerfil('')
     }
     return (
-        <div className = "add-container">
-            <input      
-                        placeholder='Nombre del perfil' type="text" 
-                        onChange={(e) => setPerfil(e.target.value)} 
-                        value={perfil}
-                    />
+        <div className="add-container">
+            <input
+                placeholder='Nombre del perfil' type="text"
+                onChange={(e) => setPerfil(e.target.value)}
+                value={perfil}
+            />
 
             <div className='ButtonContainer'>
-                <button onClick={() => {navigate(`/Perfiles`)}}> Regresar </button>
-                <button onClick={() => {createP()}}> Crear Perfil </button>
+                <button onClick={() => { navigate(`/Perfiles`) }}> Regresar </button>
+                <button onClick={() => { createP() }}> Crear Perfil </button>
             </div>
         </div>
 

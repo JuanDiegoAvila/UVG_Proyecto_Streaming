@@ -20,7 +20,7 @@ function PeliculasA() {
     const [imagen, setImagen] = useState([])
 
     const refreshPelis = async () => {
-        const fet = 'http://3.132.195.25/streaming/pelis'
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/pelis'
 
         const log = await fetch(fet)
             .then((response) => { return response.json() })
@@ -67,10 +67,10 @@ function PeliculasA() {
             },
             body: JSON.stringify(json)
         }
-        const resp = await fetch('http://3.132.195.25/streaming/pelis', options)
+        const resp = await fetch('https://apistreaming.juanangelcarrera.xyz/streaming/pelis', options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
-        
+
         setModalcr([true, nombre])
 
     }

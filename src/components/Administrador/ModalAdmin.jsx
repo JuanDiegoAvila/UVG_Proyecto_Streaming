@@ -40,7 +40,7 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
             body: JSON.stringify(json)
         }
         console.log(ident)
-        const fet = 'http://3.132.195.25/streaming/admin/' + ident
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/admin/' + ident
         const resp = await fetch(fet, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
@@ -63,7 +63,7 @@ export default function ModalAdmin({ tabla, objectU, setModalA }) {
             body: JSON.stringify(json)
         }
         console.log(ident)
-        const fet = 'http://3.132.195.25/streaming/admin/' + ident
+        const fet = 'https://apistreaming.juanangelcarrera.xyz/streaming/admin/' + ident
         const resp = await fetch(fet, options)
             .then((response) => { return response.json() })
             .then((responseInJSON) => { return responseInJSON })
